@@ -23,3 +23,4 @@ namespace BottomsSup.Models
 
         public ApplicationUser ApplicationUser { get; set; }
     }
+}

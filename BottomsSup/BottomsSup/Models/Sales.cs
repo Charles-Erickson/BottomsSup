@@ -17,8 +17,8 @@ namespace BottomsSup.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateOfSales { get; set; }
 
-        public double TotalSales { get; set; }
-        public double TotalLabor { get; set; }
+        public string TotalSales { get; set; }
+        public string TotalLabor { get; set; }
 
         [ForeignKey("Bar")]
         public int BarId { get; set; }
