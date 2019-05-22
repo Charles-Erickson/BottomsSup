@@ -277,6 +277,7 @@
     <Content Include="Views\Bars\Create.cshtml" />
     <Content Include="Views\Bars\Delete.cshtml" />
     <Content Include="Views\Bars\Details.cshtml" />
+    <Content Include="Views\Bars\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
