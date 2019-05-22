@@ -1,0 +1,58 @@
+﻿@model BottomsSup.Models.Sales
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sales</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bar.BarName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bar.BarName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfSales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfSales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalSales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalSales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalLabor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalLabor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LaborPercentage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LaborPercentage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SalesId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
