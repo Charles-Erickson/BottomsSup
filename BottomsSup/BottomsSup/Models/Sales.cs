@@ -19,6 +19,7 @@ namespace BottomsSup.Models
 
         public string TotalSales { get; set; }
         public string TotalLabor { get; set; }
+        public double LaborPercentage { get; set; }
 
         [ForeignKey("Bar")]
         public int BarId { get; set; }

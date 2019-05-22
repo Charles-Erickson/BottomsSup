@@ -194,6 +194,10 @@
     <Compile Include="Migrations\201905221349191_NewMigration.Designer.cs">
       <DependentUpon>201905221349191_NewMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905221820084_AddedNewPartstoSales.cs" />
+    <Compile Include="Migrations\201905221820084_AddedNewPartstoSales.Designer.cs">
+      <DependentUpon>201905221820084_AddedNewPartstoSales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bar.cs" />
@@ -284,6 +288,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905221349191_NewMigration.resx">
       <DependentUpon>201905221349191_NewMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905221820084_AddedNewPartstoSales.resx">
+      <DependentUpon>201905221820084_AddedNewPartstoSales.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
