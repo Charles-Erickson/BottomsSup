@@ -53,7 +53,7 @@ namespace BottomsSup.Controllers
             if (ModelState.IsValid)
             {
                 bar.ApplicationUserId = User.Identity.GetUserId();
-                //client.Age = GetAge(client.DateOfBirth);
+                string address = (bar.Address + "+" + bar.City + "+" + bar.State + "+" + bar.Zipcode);
                 db.Bars.Add(bar);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -70,28 +70,28 @@ namespace BottomsSup.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Bar bar = db.Bars.Find(id);
+            if (bar == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", client.ApplicationUserId);
-            return View(client);
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", bar.ApplicationUserId);
+            return View(bar);
         }
 
         // POST: Bars/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeId,FirstName,LastName,DateOfBirth,UserId")] Client client)
+        public ActionResult Edit([Bind(Include = "BarId,BarName,Address,City,State,Zipcode,UserId")] Bar bar)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(client).State = EntityState.Modified;
+                db.Entry(bar).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", client.ApplicationUserId);
-            return View(client);
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", bar.ApplicationUserId);
+            return View(bar);
         }
 
         // GET: Bars/Delete/5
@@ -101,12 +101,12 @@ namespace BottomsSup.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Bar bar = db.Bars.Find(id);
+            if (bar == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(bar);
         }
 
         // POST: Bars/Delete/5
@@ -114,8 +114,8 @@ namespace BottomsSup.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Client client = db.Clients.Find(id);
-            db.Clients.Remove(client);
+            Bar bar= db.Bars.Find(id);
+            db.Bars.Remove(bar);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -83,7 +83,7 @@ namespace BottomsSup.Controllers
         // POST: Clients/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeId,FirstName,LastName,DateOfBirth,UserId")] Client client)
+        public ActionResult Edit([Bind(Include = "ClientId,FirstName,LastName,DateOfBirth,UserId")] Client client)
         {
             if (ModelState.IsValid)
             {
