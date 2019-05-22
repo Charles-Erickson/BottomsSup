@@ -199,6 +199,10 @@
     <Compile Include="Migrations\201905221820084_AddedNewPartstoSales.Designer.cs">
       <DependentUpon>201905221820084_AddedNewPartstoSales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905222019022_salesModel.cs" />
+    <Compile Include="Migrations\201905222019022_salesModel.Designer.cs">
+      <DependentUpon>201905222019022_salesModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bar.cs" />
@@ -270,10 +274,11 @@
     <Content Include="Views\Sales\Details.cshtml" />
     <Content Include="Views\Sales\Edit.cshtml" />
     <Content Include="Views\Sales\Index.cshtml" />
+    <Content Include="Views\Bars\Create.cshtml" />
+    <Content Include="Views\Bars\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Bars\" />
     <Folder Include="Views\Clients\" />
     <Folder Include="Views\Geo\" />
   </ItemGroup>
@@ -296,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905221820084_AddedNewPartstoSales.resx">
       <DependentUpon>201905221820084_AddedNewPartstoSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905222019022_salesModel.resx">
+      <DependentUpon>201905222019022_salesModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

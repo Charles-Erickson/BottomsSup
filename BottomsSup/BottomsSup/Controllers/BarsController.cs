@@ -54,6 +54,12 @@ namespace BottomsSup.Controllers
             {
                 bar.ApplicationUserId = User.Identity.GetUserId();
                 string address = (bar.Address + "+" + bar.City + "+" + bar.State + "+" + bar.Zipcode);
+                GeoController geocode = new GeoController();
+                geocode.SendRequest(address);
+                bar.Lat = geocode.latitude;
+                bar.Lng = geocode.longitude;
+                bar.PhoneNumber = db.Users.Where(w => w.Id == bar.ApplicationUserId).Select(j => j.PhoneNumber).FirstOrDefault();
+                bar.SalesRecord = db.Sales.Where(f => f.BarId == bar.BarId).ToList();
                 db.Bars.Add(bar);
                 db.SaveChanges();
                 return RedirectToAction("Index");

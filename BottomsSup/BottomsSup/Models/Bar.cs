@@ -14,6 +14,8 @@ namespace BottomsSup.Models
         //[Display("Bar Name")]
         public string BarName { get; set; }
         //public IEnumerable<Tokens> Tokens { get; set; }
+        public IEnumerable<Sales> SalesRecord { get; set; }
+        public IEnumerable<string> DrinkList { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
         public string State { get; set; }
@@ -21,6 +23,7 @@ namespace BottomsSup.Models
         public string Lat { get; set; }
         public string Lng { get; set; }
         public string PhoneNumber { get; set; }
+
         [ForeignKey("ApplicationUser")]
         public string ApplicationUserId { get; set; }
 
