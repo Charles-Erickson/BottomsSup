@@ -14,6 +14,7 @@ namespace BottomsSup.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public IEnumerable<Client> Friends { get; set; }
+        public IEnumerable<int> Tokens { get; set; }
 
         [Display(Name = "Date of Birth")]
         [DataType(DataType.Date)]

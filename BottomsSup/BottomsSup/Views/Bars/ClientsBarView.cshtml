@@ -1,0 +1,178 @@
+﻿@model BottomsSup.Models.Bar
+
+
+@{
+    ViewBag.Title = "ClientsBarView";
+}
+
+<h2>ClientsBarView</h2>
+
+<style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+        height: 310px;
+        width: 450px;
+    }
+</style>
+
+<div>
+    <br />
+    <h4>Bar Location</h4>
+    <div id="map">
+
+    </div>
+    <div>
+        <script>
+            var map, infoWindow;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: -34.39, lng: 150.644 },
+                    zoom: 8
+                });
+                infoWindow = new google.maps.InfoWindow;
+                // Try HTML5 geolocation.
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent('Your Location!');
+                        infoWindow.open(map);
+                        map.setCenter(pos);
+                    }, function () {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    });
+                } else {
+                    // Browser doesn't support Geolocation
+                    handleLocationError(false, infoWindow, map.getCenter());
+                }
+                setMarkers(map);
+            }
+            var beaches = [
+                ['Job', 43.016630, -88.007280, 1],
+            ];
+            function setMarkers(map) {
+                // Adds markers to the map.
+                // Marker sizes are expressed as a Size of X,Y where the origin of the image
+                // (0,0) is located in the top left of the image.
+                // Origins, anchor positions and coordinates of the marker increase in the X
+                // direction to the right and in the Y direction down.
+                var image = {
+                    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                    // This marker is 20 pixels wide by 32 pixels high.
+                    size: new google.maps.Size(20, 32),
+                    // The origin for this image is (0, 0).
+                    origin: new google.maps.Point(0, 0),
+                    // The anchor for this image is the base of the flagpole at (0, 32).
+                    anchor: new google.maps.Point(0, 32)
+                };
+                // Shapes define the clickable region of the icon. The type defines an HTML
+                // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+                // The final coordinate closes the poly by connecting to the first coordinate.
+                var shape = {
+                    coords: [1, 1, 1, 20, 18, 20, 18, 1],
+                    type: 'poly'
+                };
+                var lat =@Model.Lat;
+                var lng =@Model.Lng;
+                    var marker = new google.maps.Marker({
+                        position : {
+                            lat: @Model.Lat,
+                            lng: @Model.Lng
+                        },
+                        map: map,
+                        icon: image,
+                        shape: shape,
+                        title: 'Bar',
+                        zIndex: 1
+                    });
+                var bounds = new google.map.LatLngBounds();
+                loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+                bounds.extend(loc);
+                map.fitBounds(bounds);
+                map.panToBounds(bounds);
+            }
+            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                infoWindow.setPosition(pos);
+                infoWindow.setContent(browserHasGeolocation ?
+                    'Error: The Geolocation service failed.' :
+                    'Error: Your browser doesn\'t support geolocation.');
+                infoWindow.open(map);
+            }
+        </script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDF86evlibyP2cfdn4g8H86ZlNtLFftiLM&callback=initMap">
+        </script>
+        <div class="dl-horizontal">
+            <br />
+            <dt>
+                @Html.DisplayNameFor(model => model.BarName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BarName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.State)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.State)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Zipcode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Zipcode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DrinkList)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DrinkList)
+            </dd><br />
+
+
+            <text>Would you like to send a message to this client?</text>
+            <input class="form-control"
+                   name="myTextBox"
+                   type="text"
+                   placeholder="Enter your message here..." /><br />
+            <p>
+                @*@Html.ActionLink("Edit", "Edit", new { id = Model.JobsId }) |*@
+                @Html.ActionLink("Back to View Bars", "Index", "Bar")
+            </p>
+
+
+
+        </div>
+
+
+    </div>
+
+
+</div>

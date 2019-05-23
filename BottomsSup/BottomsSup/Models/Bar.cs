@@ -13,7 +13,7 @@ namespace BottomsSup.Models
         public int BarId { get; set; }
         //[Display("Bar Name")]
         public string BarName { get; set; }
-        //public IEnumerable<Tokens> Tokens { get; set; }
+        public IEnumerable<int> Tokens { get; set; }
         public IEnumerable<Sales> SalesRecord { get; set; }
         public IEnumerable<string> DrinkList { get; set; }
         public string Address { get; set; }
