@@ -203,6 +203,14 @@
     <Compile Include="Migrations\201905222019022_salesModel.Designer.cs">
       <DependentUpon>201905222019022_salesModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905241251088_newUpdateForTesting.cs" />
+    <Compile Include="Migrations\201905241251088_newUpdateForTesting.Designer.cs">
+      <DependentUpon>201905241251088_newUpdateForTesting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905241312192_updatedModels.cs" />
+    <Compile Include="Migrations\201905241312192_updatedModels.Designer.cs">
+      <DependentUpon>201905241312192_updatedModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bar.cs" />
@@ -312,6 +320,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905222019022_salesModel.resx">
       <DependentUpon>201905222019022_salesModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905241251088_newUpdateForTesting.resx">
+      <DependentUpon>201905241251088_newUpdateForTesting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905241312192_updatedModels.resx">
+      <DependentUpon>201905241312192_updatedModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -69,6 +69,9 @@ namespace BottomsSup.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+
+
+
         [Required]
         [Phone]
         [Display(Name = "Phone Number")]

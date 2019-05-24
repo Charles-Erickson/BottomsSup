@@ -17,8 +17,13 @@ namespace BottomsSup.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateOfSales { get; set; }
 
-        public string TotalSales { get; set; }
-        public string TotalLabor { get; set; }
+        [Display(Name = "Total Sales of the Day")]
+        [DataType(DataType.Currency)]
+        public double TotalSales { get; set; }
+
+        [Display(Name = "Cost of Labor For Day")]
+        [DataType(DataType.Currency)]
+        public double TotalLabor { get; set; }
         public double LaborPercentage { get; set; }
 
         [ForeignKey("Bar")]
