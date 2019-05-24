@@ -7,13 +7,13 @@ namespace BottomsSup.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class NewMigration : IMigrationMetadata
+    public sealed partial class fortheloveofgodwork : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(NewMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(fortheloveofgodwork));
         
         string IMigrationMetadata.Id
         {
-            get { return "201905221349191_NewMigration"; }
+            get { return "201905241617117_fortheloveofgodwork"; }
         }
         
         string IMigrationMetadata.Source

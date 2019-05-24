@@ -12,6 +12,7 @@ namespace BottomsSup
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            createRolesAndUsers();
         }
 
 

@@ -3,7 +3,7 @@ namespace BottomsSup.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class newUpdateForTesting : DbMigration
+    public partial class pleaseWorkplease : DbMigration
     {
         public override void Up()
         {

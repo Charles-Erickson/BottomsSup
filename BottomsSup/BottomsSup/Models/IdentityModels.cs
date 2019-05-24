@@ -33,5 +33,7 @@ namespace BottomsSup.Models
         public DbSet<Client> Clients { get; set; }
         public DbSet<Bar> Bars { get; set; }
         public DbSet<Sales> Sales { get; set; }
+        public string UserRoles { get; set; }
+        public string UserName { get; set; }
     }
 }

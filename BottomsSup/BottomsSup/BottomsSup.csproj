@@ -191,25 +191,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905221349191_NewMigration.cs" />
-    <Compile Include="Migrations\201905221349191_NewMigration.Designer.cs">
-      <DependentUpon>201905221349191_NewMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201905241544139_new.cs" />
+    <Compile Include="Migrations\201905241544139_new.Designer.cs">
+      <DependentUpon>201905241544139_new.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905221820084_AddedNewPartstoSales.cs" />
-    <Compile Include="Migrations\201905221820084_AddedNewPartstoSales.Designer.cs">
-      <DependentUpon>201905221820084_AddedNewPartstoSales.cs</DependentUpon>
+    <Compile Include="Migrations\201905241555178_pleaseWork.cs" />
+    <Compile Include="Migrations\201905241555178_pleaseWork.Designer.cs">
+      <DependentUpon>201905241555178_pleaseWork.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905222019022_salesModel.cs" />
-    <Compile Include="Migrations\201905222019022_salesModel.Designer.cs">
-      <DependentUpon>201905222019022_salesModel.cs</DependentUpon>
+    <Compile Include="Migrations\201905241559094_pleaseWorkplease.cs" />
+    <Compile Include="Migrations\201905241559094_pleaseWorkplease.Designer.cs">
+      <DependentUpon>201905241559094_pleaseWorkplease.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905241251088_newUpdateForTesting.cs" />
-    <Compile Include="Migrations\201905241251088_newUpdateForTesting.Designer.cs">
-      <DependentUpon>201905241251088_newUpdateForTesting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905241312192_updatedModels.cs" />
-    <Compile Include="Migrations\201905241312192_updatedModels.Designer.cs">
-      <DependentUpon>201905241312192_updatedModels.cs</DependentUpon>
+    <Compile Include="Migrations\201905241617117_fortheloveofgodwork.cs" />
+    <Compile Include="Migrations\201905241617117_fortheloveofgodwork.Designer.cs">
+      <DependentUpon>201905241617117_fortheloveofgodwork.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -312,20 +308,17 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905221349191_NewMigration.resx">
-      <DependentUpon>201905221349191_NewMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905241544139_new.resx">
+      <DependentUpon>201905241544139_new.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905221820084_AddedNewPartstoSales.resx">
-      <DependentUpon>201905221820084_AddedNewPartstoSales.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905241555178_pleaseWork.resx">
+      <DependentUpon>201905241555178_pleaseWork.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905222019022_salesModel.resx">
-      <DependentUpon>201905222019022_salesModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905241559094_pleaseWorkplease.resx">
+      <DependentUpon>201905241559094_pleaseWorkplease.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905241251088_newUpdateForTesting.resx">
-      <DependentUpon>201905241251088_newUpdateForTesting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905241312192_updatedModels.resx">
-      <DependentUpon>201905241312192_updatedModels.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905241617117_fortheloveofgodwork.resx">
+      <DependentUpon>201905241617117_fortheloveofgodwork.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

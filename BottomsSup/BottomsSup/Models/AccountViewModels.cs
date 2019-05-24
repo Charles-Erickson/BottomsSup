@@ -69,8 +69,13 @@ namespace BottomsSup.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+        [Required]
+        [Display(Name = "UserRoles")]
+        public string UserRole { get; set; }
 
-
+        [Required]
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
 
         [Required]
         [Phone]
