@@ -144,6 +144,8 @@ namespace BottomsSup.Controllers
         {
             ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
                                             .ToList(), "Name", "Name");
+
+           
             return View();
         }
 
@@ -186,7 +188,7 @@ namespace BottomsSup.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { Email = model.Email };
+                var user = new ApplicationUser { UserName=model.UserName, Email = model.Email, PhoneNumber=model.Number };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -200,13 +202,13 @@ namespace BottomsSup.Controllers
                     //Assign Role to user Here      
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRole);
                     //Ends Here    
-                    if (model.UserRole == "Customer")
+                    if (model.UserRole == "Client")
                     {
-                        return RedirectToAction("Create", "Customers");
+                        return RedirectToAction("Create", "Clients");
                     }
-                    else
+                    else if(model.UserRole == "Bar")
                     {
-                        return RedirectToAction("Create", "Employees");
+                        return RedirectToAction("Create", "Bars");
                     }
 
                 }

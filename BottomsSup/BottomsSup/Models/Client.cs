@@ -26,6 +26,7 @@ namespace BottomsSup.Models
 
         public IEnumerable<Client> Friends { get; set; }
         public IEnumerable<int> Tokens { get; set; }
+       // public IEnumerable<User>
         
         [Required]
         [Display(Name = "Date of Birth")]

@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201905241617117_fortheloveofgodwork.Designer.cs">
       <DependentUpon>201905241617117_fortheloveofgodwork.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905241635383_ttttttt.cs" />
+    <Compile Include="Migrations\201905241635383_ttttttt.Designer.cs">
+      <DependentUpon>201905241635383_ttttttt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bar.cs" />
@@ -319,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905241617117_fortheloveofgodwork.resx">
       <DependentUpon>201905241617117_fortheloveofgodwork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905241635383_ttttttt.resx">
+      <DependentUpon>201905241635383_ttttttt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
