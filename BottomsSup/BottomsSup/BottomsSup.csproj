@@ -301,6 +301,7 @@
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Bars\ClientsBarView.cshtml" />
+    <Content Include="Views\Bars\ClientBarList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
