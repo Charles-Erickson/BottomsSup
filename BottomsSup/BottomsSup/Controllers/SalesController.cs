@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using BottomsSup.Models;
 using Microsoft.AspNet.Identity;
@@ -15,6 +16,7 @@ namespace BottomsSup.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        //var;
         // GET: Sales
         public ActionResult Index()
         {
@@ -83,7 +85,7 @@ namespace BottomsSup.Controllers
             ViewBag.BarId = new SelectList(db.Bars, "BarId", "BarName", sales.BarId);
             return View(sales);
         }
-
+        
         // POST: Sales/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -126,6 +128,21 @@ namespace BottomsSup.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //[HttpPost, ActionName("Chart")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult CreateChart(int id)
+        //{
+        //    new Chart(width: 800, height: 200)
+        //        .AddTitle("Sales Record")
+        //        .AddSeries(
+                
+        //        xValue:
+
+
+
+        //}
+
 
         protected override void Dispose(bool disposing)
         {
