@@ -6,7 +6,7 @@
 
 <h2>Details</h2>
 <div>
-    <h4>Sales</h4>
+    <h4> Bar Info</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -50,11 +50,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
+            @Html.DisplayNameFor(model => model.Open)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
+            @Html.DisplayFor(model => model.Open)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Close)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Close)
         </dd>
 
         <dt>
@@ -70,7 +78,8 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BarId }) |
     @Html.ActionLink("Back to List", "Index")|
-    @Html.ActionLink("Record Sales","Create","Sales")|
-    
+    @Html.ActionLink("Record Sales", "Create", "Sales")|
+    @Html.ActionLink("View Sales Records", "Details", "Sales")
+
 </p>
 

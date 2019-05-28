@@ -149,6 +149,23 @@
             </dd>
 
             <dt>
+                @Html.DisplayNameFor(model => model.Open)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Open)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Close)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Close)
+            </dd>
+
+
+            <dt>
                 @Html.DisplayNameFor(model => model.DrinkList)
             </dt>
 
@@ -157,13 +174,8 @@
             </dd><br />
 
 
-            <text>Would you like to send a message to this client?</text>
-            <input class="form-control"
-                   name="myTextBox"
-                   type="text"
-                   placeholder="Enter your message here..." /><br />
             <p>
-                @Html.ActionLink("Back to View Bars", "Index", "Bar")
+                @Html.ActionLink("Back to View Bars", "ClientBarList", "Bar")
             </p>
 
 

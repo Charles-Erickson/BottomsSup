@@ -126,8 +126,28 @@ namespace BottomsSup.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: Bars/Details/5
+        public ActionResult ClientBarView(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Bar bar = db.Bars.Find(id);
+            if (bar == null)
+            {
+                return HttpNotFound();
+            }
+            return View(bar);
+        }
 
+        // GET: Bars
+        public ActionResult ClientBarList()
+        {
+            var bars = db.Bars;
+            return View(bars);
 
+        }
 
 
 

@@ -20,7 +20,10 @@ namespace BottomsSup.Controllers
         // GET: Sales
         public ActionResult Index()
         {
-            var sales = db.Sales.Include(s => s.Bar);
+            var salesList = db.Sales.Include(s => s.Bar);
+            var BarLoggedIn = User.Identity.GetUserId();
+            var barId = db.Bars.Where(d => d.ApplicationUserId == BarLoggedIn).Select(f => f.BarId).FirstOrDefault();
+            var sales = db.Sales.Where(k => k.BarId == barId);
             return View(sales.ToList());
         }
 

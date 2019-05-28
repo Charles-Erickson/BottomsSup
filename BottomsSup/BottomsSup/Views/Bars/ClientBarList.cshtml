@@ -1,7 +1,61 @@
-﻿
+﻿@model IEnumerable<BottomsSup.Models.Bar>
+
 @{
     ViewBag.Title = "ClientBarList";
 }
 
 <h2>ClientBarList</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BarName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zipcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.BarName)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Address)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.City)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.State)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Zipcode)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+ 
+            <td>
+
+                @Html.ActionLink("Details", "Details", new { id = item.BarId })
+            </td>
+        </tr>
+    }
+
+</table>
 

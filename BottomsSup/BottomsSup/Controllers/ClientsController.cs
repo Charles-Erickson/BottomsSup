@@ -57,7 +57,7 @@ namespace BottomsSup.Controllers
                     //client.Age = GetAge(client.DateOfBirth);
                     db.Clients.Add(client);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Details");
                 }
 
             ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", client.ApplicationUserId);
