@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BottomsSup.Models.Client>
+
+@{
+    ViewBag.Title = "FriendList";
+}
+
+<h2>FriendList</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Friends)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.LastName)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Friends)
+            </td>
+
+            <td>
+                @Html.ActionLink("Send Token", "SendToken", new { id = item.ClientId }) |
+                @Html.ActionLink("Add Friend", "AddFriend", new { id = item.ClientId }) |
+            </td>
+        </tr>
+    }
+
+</table>
