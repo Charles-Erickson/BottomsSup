@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 
@@ -13,13 +14,16 @@ namespace BottomsSup.Controllers
     public class ClientsController : Controller
     {
 
+
         private ApplicationDbContext db = new ApplicationDbContext();
+        HttpClient apiClient = new HttpClient();
 
         // GET: Clients
         public ActionResult Index()
         {
             var ClientLoggedIn = User.Identity.GetUserId();
-            var client = db.Clients.Select(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+            //var client = db.Clients.Select(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+
             return View(client);
 
         }
@@ -57,7 +61,7 @@ namespace BottomsSup.Controllers
                     //client.Age = GetAge(client.DateOfBirth);
                     db.Clients.Add(client);
                     db.SaveChanges();
-                    return RedirectToAction("Details");
+                    return RedirectToAction("Index");
                 }
 
             ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", client.ApplicationUserId);
@@ -115,11 +119,82 @@ namespace BottomsSup.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
             Client client = db.Clients.Find(id);
             db.Clients.Remove(client);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpPost, ActionName("AddFriend")]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddFriend(int id)
+        {
+            Client client;
+            if (ModelState.IsValid)
+            {
+                Client friend = db.Clients.Where(h => h.ClientId == id).FirstOrDefault();
+                var ClientLoggedIn = User.Identity.GetUserId();
+                client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+                //client.Friends(friend).ToList();
+                
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            client = null;
+            return View(client);
+        }
+
+
+
+
+        [HttpPost, ActionName("SendToken")]
+        [ValidateAntiForgeryToken]
+        public ActionResult SendToken(int id,Client client)
+        {
+            var ClientLoggedIn = User.Identity.GetUserId();
+            client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+            var friend= db.Clients.Where(e => e.ClientId == id).FirstOrDefault();
+            if (client.Tokens> 0)
+            {
+                client.Tokens = client.Tokens-1;
+                friend.Tokens = friend.Tokens + 1;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(client);
+        }
+
+
+        [HttpPost, ActionName("SpendToken")]
+        [ValidateAntiForgeryToken]
+        public ActionResult SpendToken(int id, Client client)
+        {
+            var ClientLoggedIn = User.Identity.GetUserId();
+            client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+            var bar = db.Bars.Where(e => e.BarId == id).FirstOrDefault();
+            if (client.Tokens > 0)
+            {
+                client.Tokens = client.Tokens - 1;
+                bar.Tokens = bar.Tokens + 1;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(client);
+        }
+
+
+
+
+        //[HttpPost, ActionName("BuyTokens")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult BuyTokens(int id)
+        //{
+        //   Client user= db.Clients.Find(id);
+        //    apiClient.BaseAddress
+
+
+        //}
 
         //public int GetAge(Client client)
         //{

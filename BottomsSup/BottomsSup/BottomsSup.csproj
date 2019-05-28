@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201905271726561_oieunfhowuh.Designer.cs">
       <DependentUpon>201905271726561_oieunfhowuh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905281921279_njew.cs" />
+    <Compile Include="Migrations\201905281921279_njew.Designer.cs">
+      <DependentUpon>201905281921279_njew.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bar.cs" />
@@ -341,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905271726561_oieunfhowuh.resx">
       <DependentUpon>201905271726561_oieunfhowuh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905281921279_njew.resx">
+      <DependentUpon>201905281921279_njew.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
