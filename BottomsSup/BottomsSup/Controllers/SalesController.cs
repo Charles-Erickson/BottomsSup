@@ -9,6 +9,9 @@ using System.Web.Helpers;
 using System.Web.Mvc;
 using BottomsSup.Models;
 using Microsoft.AspNet.Identity;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Web.UI.DataVisualization.Charting;
 
 namespace BottomsSup.Controllers
 {
@@ -132,22 +135,29 @@ namespace BottomsSup.Controllers
             return RedirectToAction("Index");
         }
 
-        //[HttpPost, ActionName("Chart")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult CreateChart(int id)
-        //{
-        //    new Chart(width: 800, height: 200)
-        //        .AddTitle("Sales Record")
-        //        .AddSeries(
-                
-        //        xValue:
+    //    [HttpPost, ActionName("Chart")]
+    //    [ValidateAntiForgeryToken]
+    //    public ActionResult CreateChart(int id)
+    //    {
+    //        //        //    new Chart(width: 800, height: 200)
+    //        //        //        .AddTitle("Sales Record")
+    //        //        //        .AddSeries(
+
+    //        //        //        xValue:
 
 
+    //        var data = Database.Open("Sales");
+    //    var dbdata = data.Query("SELECT Date,  FROM Sales");
+    //    var myChart = new Chart(width: 600, height: 400)
+    //       .AddTitle("Sales Record")
+    //       .DataBindTable(dataSource: dbdata, xField: "Date")
+    //       .Write();
+    //}
 
-        //}
+    //}
 
 
-        protected override void Dispose(bool disposing)
+    protected override void Dispose(bool disposing)
         {
             if (disposing)
             {

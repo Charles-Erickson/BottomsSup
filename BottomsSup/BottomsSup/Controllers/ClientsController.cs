@@ -176,6 +176,30 @@ namespace BottomsSup.Controllers
             return View();
         }
 
+        public ActionResult Charge(string stripeEmail, string stripeToken)
+        {
+            var customers = new StripeCustomerService();
+            var charges = new StripeChargeService();
+
+            var customer = customers.Create(new StripeCustomerCreateOptions
+            {
+                Email = stripeEmail,
+                SourceToken = stripeToken
+            });
+
+            var charge = charges.Create(new StripeChargeCreateOptions
+            {
+                Amount = 500,//charge in cents
+                Description = "Sample Charge",
+                Currency = "usd",
+                CustomerId = customer.Id
+            });
+            
+            // further application specific code goes here
+
+            return View();
+        }
+
         public ActionResult BarFlyList()
         {
 
@@ -212,22 +236,36 @@ namespace BottomsSup.Controllers
         }
 
 
-        //[HttpPost, ActionName("SpendToken")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult SpendToken(int id, Client client)
-        //{
-        //    var ClientLoggedIn = User.Identity.GetUserId();
-        //    client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
-        //    var bar = db.Bars.Where(e => e.BarId == id).FirstOrDefault();
-        //    if (client.Tokens > 0)
-        //    {
-        //        client.Tokens = client.Tokens - 1;
-        //        bar.Tokens = bar.Tokens + 1;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(client);
-        //}
+        [HttpPost, ActionName("SpendToken")]
+        [ValidateAntiForgeryToken]
+        public ActionResult SpendToken(int id, Client client)
+        {
+            var ClientLoggedIn = User.Identity.GetUserId();
+            client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+            var bar = db.Bars.Where(e => e.BarId == id).FirstOrDefault();
+            if (client.Tokens.Count() > 0)
+            {
+                List<Tokens> tokenList = new List<Tokens>();
+                List<Tokens> BarList = new List<Tokens>();
+                tokenList.AddRange(client.Tokens);
+                tokenList.RemoveAt(0);
+                var token = db.Tokens.Create();
+                BarList.Add(token);
+                client.Tokens = tokenList;
+                bar.Tokens = BarList;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(client);
+        }
+
+        [HttpPost, ActionName("ViewBars")]
+        public ActionResult ViewBars ()
+        {
+            //BarsController bar = new BarsController();
+            return RedirectToAction("ClientBarList");
+           
+        }
 
 
 
