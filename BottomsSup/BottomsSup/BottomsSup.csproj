@@ -225,6 +225,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Bank.cs" />
     <Compile Include="Models\Bar.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -307,6 +308,7 @@
     <Content Include="Views\Bars\ClientsBarView.cshtml" />
     <Content Include="Views\Bars\ClientBarList.cshtml" />
     <Content Include="Views\Clients\FriendList.cshtml" />
+    <Content Include="Views\Clients\SearchFriends.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

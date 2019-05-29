@@ -21,9 +21,9 @@ namespace BottomsSup.Controllers
         // GET: Clients
         public ActionResult Index()
         {
-            var ClientLoggedIn = User.Identity.GetUserId();
+            //var ClientLoggedIn = User.Identity.GetUserId();
             //var client = db.Clients.Select(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
-
+            var client = db.Clients;
             return View(client);
 
         }
@@ -136,7 +136,10 @@ namespace BottomsSup.Controllers
                 Client friend = db.Clients.Where(h => h.ClientId == id).FirstOrDefault();
                 var ClientLoggedIn = User.Identity.GetUserId();
                 client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
-                //client.Friends(friend).ToList();
+                List<Client> friends = new List<Client>();
+                friends.AddRange(client.Friends);
+                friends.Add(friend);
+                client.Friends = friends;
                 
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -146,19 +149,17 @@ namespace BottomsSup.Controllers
         }
 
 
-
-
-        [HttpPost, ActionName("SendToken")]
+        [HttpPost, ActionName("SearchFriend")]
         [ValidateAntiForgeryToken]
-        public ActionResult SendToken(int id,Client client)
+        public ActionResult SearchFriends([Bind(Include = "FriendName")] int id)
         {
-            var ClientLoggedIn = User.Identity.GetUserId();
-            client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
-            var friend= db.Clients.Where(e => e.ClientId == id).FirstOrDefault();
-            if (client.Tokens> 0)
+            Client client = db.Clients.Find(id);
+            
+            if (ModelState.IsValid)
             {
-                client.Tokens = client.Tokens-1;
-                friend.Tokens = friend.Tokens + 1;
+                db.Entry(client).State = EntityState.Modified;
+                db.SaveChanges();
+                var matchs = db.Clients.Where(d => d.FirstName == client.FirstName || d.LastName == client.LastName);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -166,22 +167,42 @@ namespace BottomsSup.Controllers
         }
 
 
-        [HttpPost, ActionName("SpendToken")]
-        [ValidateAntiForgeryToken]
-        public ActionResult SpendToken(int id, Client client)
-        {
-            var ClientLoggedIn = User.Identity.GetUserId();
-            client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
-            var bar = db.Bars.Where(e => e.BarId == id).FirstOrDefault();
-            if (client.Tokens > 0)
-            {
-                client.Tokens = client.Tokens - 1;
-                bar.Tokens = bar.Tokens + 1;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(client);
-        }
+
+
+        //[HttpPost, ActionName("SendToken")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult SendToken(int id,Client client)
+        //{
+        //    var ClientLoggedIn = User.Identity.GetUserId();
+        //    client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+        //    var friend= db.Clients.Where(e => e.ClientId == id).FirstOrDefault();
+        //    if (client.Tokens> 0)
+        //    {
+        //        client.Tokens = client.Tokens-1;
+        //        friend.Tokens = friend.Tokens + 1;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(client);
+        //}
+
+
+        //[HttpPost, ActionName("SpendToken")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult SpendToken(int id, Client client)
+        //{
+        //    var ClientLoggedIn = User.Identity.GetUserId();
+        //    client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+        //    var bar = db.Bars.Where(e => e.BarId == id).FirstOrDefault();
+        //    if (client.Tokens > 0)
+        //    {
+        //        client.Tokens = client.Tokens - 1;
+        //        bar.Tokens = bar.Tokens + 1;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(client);
+        //}
 
 
 
