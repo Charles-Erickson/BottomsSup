@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BottomsSup.Models.Tokens>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TokenName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TokenPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TokenName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TokenPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TokenId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TokenId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TokenId })
+        </td>
+    </tr>
+}
+
+</table>

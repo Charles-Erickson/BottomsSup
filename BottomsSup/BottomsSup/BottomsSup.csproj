@@ -46,8 +46,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Stripe.net, Version=26.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.26.0.0\lib\net45\Stripe.net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -188,6 +195,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\TokensController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,6 +231,10 @@
     <Compile Include="Migrations\201905281921279_njew.Designer.cs">
       <DependentUpon>201905281921279_njew.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905291701545_djw.cs" />
+    <Compile Include="Migrations\201905291701545_djw.Designer.cs">
+      <DependentUpon>201905291701545_djw.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bank.cs" />
@@ -231,6 +243,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Sales.cs" />
+    <Compile Include="Models\Tokens.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -309,6 +322,11 @@
     <Content Include="Views\Bars\ClientBarList.cshtml" />
     <Content Include="Views\Clients\FriendList.cshtml" />
     <Content Include="Views\Clients\SearchFriends.cshtml" />
+    <Content Include="Views\Tokens\Create.cshtml" />
+    <Content Include="Views\Tokens\Delete.cshtml" />
+    <Content Include="Views\Tokens\Details.cshtml" />
+    <Content Include="Views\Tokens\Edit.cshtml" />
+    <Content Include="Views\Tokens\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -351,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905281921279_njew.resx">
       <DependentUpon>201905281921279_njew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905291701545_djw.resx">
+      <DependentUpon>201905291701545_djw.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
