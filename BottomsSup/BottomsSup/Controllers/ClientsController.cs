@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -21,6 +22,7 @@ namespace BottomsSup.Controllers
         // GET: Clients
         public ActionResult Index()
         {
+
             //var ClientLoggedIn = User.Identity.GetUserId();
             //var client = db.Clients.Select(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
             var client = db.Clients;
@@ -149,7 +151,7 @@ namespace BottomsSup.Controllers
         }
 
 
-        [HttpPost, ActionName("SearchFriend")]
+        [HttpPost, ActionName("SearchFriends")]
         [ValidateAntiForgeryToken]
         public ActionResult SearchFriends([Bind(Include = "FriendName")] int id)
         {
@@ -167,24 +169,47 @@ namespace BottomsSup.Controllers
         }
 
 
+        public ActionResult Stripe()
+        {
+            var stripePublishKey = ConfigurationManager.AppSettings[APIKeys.StripeApi];
+            ViewBag.StripePublishKey = stripePublishKey;
+            return View();
+        }
+
+        public ActionResult BarFlyList()
+        {
+
+            //var ClientLoggedIn = User.Identity.GetUserId();
+            //var client = db.Clients.Select(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+            var client = db.Clients;
+            return View(client);
+
+        }
 
 
-        //[HttpPost, ActionName("SendToken")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult SendToken(int id,Client client)
-        //{
-        //    var ClientLoggedIn = User.Identity.GetUserId();
-        //    client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
-        //    var friend= db.Clients.Where(e => e.ClientId == id).FirstOrDefault();
-        //    if (client.Tokens> 0)
-        //    {
-        //        client.Tokens = client.Tokens-1;
-        //        friend.Tokens = friend.Tokens + 1;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(client);
-        //}
+
+        [HttpPost, ActionName("SendToken")]
+        [ValidateAntiForgeryToken]
+        public ActionResult SendToken(int id, Client client)
+        {
+            var ClientLoggedIn = User.Identity.GetUserId();
+            client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+            var friend = db.Clients.Where(e => e.ClientId == id).FirstOrDefault();
+            if (client.Tokens.Count() > 0)
+            {
+                List<Tokens> tokenList = new List<Tokens>();
+                List<Tokens> friendList = new List<Tokens>();
+                tokenList.AddRange(client.Tokens);
+                tokenList.RemoveAt(0);
+                var token = db.Tokens.Create();
+                friendList.Add(token);
+                client.Tokens = tokenList;
+                friend.Tokens = friendList;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(client);
+        }
 
 
         //[HttpPost, ActionName("SpendToken")]
