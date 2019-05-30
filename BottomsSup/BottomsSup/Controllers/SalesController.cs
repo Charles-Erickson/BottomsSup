@@ -167,35 +167,35 @@ namespace BottomsSup.Controllers
         }
     }
 
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (!this.IsPostBack)
-        {
-            string query = "SELECT DISTINCT ShipCountry FROM Orders";
-            DataTable dt = GetData(query);
-            DB.DataSource = dt;
-            ddlCountries.DataTextField = "ShipCountry";
-            ddlCountries.DataValueField = "ShipCountry";
-            ddlCountries.DataBind();
-            ddlCountries.Items.Insert(0, new ListItem("Select Country", ""));
-        }
-    }
+    //protected void Page_Load(object sender, EventArgs e)
+    //{
+    //    if (!this.IsPostBack)
+    //    {
+    //        string query = "SELECT DISTINCT ShipCountry FROM Orders";
+    //        DataTable dt = GetData(query);
+    //        DB.DataSource = dt;
+    //        ddlCountries.DataTextField = "ShipCountry";
+    //        ddlCountries.DataValueField = "ShipCountry";
+    //        ddlCountries.DataBind();
+    //        ddlCountries.Items.Insert(0, new ListItem("Select Country", ""));
+    //    }
+    //}
 
-    private static DataTable GetData(string query)
-    {
-        string constr = ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
-        using (SqlConnection con = new SqlConnection(constr))
-        {
-            using (SqlCommand cmd = new SqlCommand(query))
-            {
-                DataTable dt = new DataTable();
-                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
-                {
-                    sda.Fill(dt);
-                }
+    //private static DataTable GetData(string query)
+    //{
+    //    string constr = ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
+    //    using (SqlConnection con = new SqlConnection(constr))
+    //    {
+    //        using (SqlCommand cmd = new SqlCommand(query))
+    //        {
+    //            DataTable dt = new DataTable();
+    //            using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+    //            {
+    //                sda.Fill(dt);
+    //            }
 
-                return dt;
-            }
-        }
-    }
+    //            return dt;
+    //        }
+    //    }
+    //}
 }

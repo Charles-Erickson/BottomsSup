@@ -15,7 +15,6 @@ namespace BottomsSup.Controllers
 {
     public class ClientsController : Controller
     {
-        private 
 
         private ApplicationDbContext db = new ApplicationDbContext();
         HttpClient apiClient = new HttpClient();
@@ -129,7 +128,19 @@ namespace BottomsSup.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost, ActionName("AddFriend")]
+//       public StripeConfiguration.SetApiKey(APIKeys.StirpeAPI);
+
+//   public var options = new ChargeCreateOptions
+//{
+//    Amount = 500,
+//    Currency = "usd",
+//    Description = "",
+//    SourceId = "tok_visa" // obtained with Stripe.js,
+//};
+//        var service = new ChargeService();
+//        Charge charge = service.Create(options);
+
+       [HttpPost, ActionName("AddFriend")]
         [ValidateAntiForgeryToken]
         public ActionResult AddFriend(int id)
         {
@@ -177,31 +188,31 @@ namespace BottomsSup.Controllers
             return View();
         }
 
-        public ActionResult Charge(string stripeEmail, string stripeToken)
-        {
-            var customers = new StripeCustomerService();
-            var charges = new StripeChargeService();
-            StripeConfiguration.SetApiKey(ConfigurationManager.AppSettings[APIKeys.StripeApi]);
+        //public ActionResult Charge(string stripeEmail, string stripeToken)
+        //{
+        //    var customers = new StripeCustomerService();
+        //    var charges = new StripeChargeService();
+        //    StripeConfiguration.SetApiKey(ConfigurationManager.AppSettings[APIKeys.StripeApi]);
 
 
-            var customer = customers.Create(new StripeCustomerCreateOptions
-            {
-                Email = stripeEmail,
-                SourceToken = stripeToken
-            });
+        //    var customer = customers.Create(new StripeCustomerCreateOptions
+        //    {
+        //        Email = stripeEmail,
+        //        SourceToken = stripeToken
+        //    });
 
-            var charge = charges.Create(new StripeChargeCreateOptions
-            {
-                Amount = 500,//charge in cents
-                Description = "Sample Charge",
-                Currency = "usd",
-                CustomerId = customer.Id
-            });
+        //    var charge = charges.Create(new StripeChargeCreateOptions
+        //    {
+        //        Amount = 500,//charge in cents
+        //        Description = "Sample Charge",
+        //        Currency = "usd",
+        //        CustomerId = customer.Id
+        //    });
             
             // further application specific code goes here
 
-            return View();
-        }
+        //    return View();
+        //}
 
         public ActionResult BarFlyList()
         {
@@ -217,7 +228,7 @@ namespace BottomsSup.Controllers
 
         [HttpPost, ActionName("SendToken")]
         [ValidateAntiForgeryToken]
-        public ActionResult SendToken(int id, Client client)
+        public ActionResult SendToken([Bind(Include = "SelectedDrink")] Client client, int id)
         {
             var ClientLoggedIn = User.Identity.GetUserId();
             client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();

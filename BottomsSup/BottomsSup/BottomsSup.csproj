@@ -213,6 +213,14 @@
     <Compile Include="Migrations\201905292008528_dieoajd.Designer.cs">
       <DependentUpon>201905292008528_dieoajd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905301328596_djaidjo.cs" />
+    <Compile Include="Migrations\201905301328596_djaidjo.Designer.cs">
+      <DependentUpon>201905301328596_djaidjo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905301513141_sfa.cs" />
+    <Compile Include="Migrations\201905301513141_sfa.Designer.cs">
+      <DependentUpon>201905301513141_sfa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bank.cs" />
@@ -226,17 +234,26 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\agency.css" />
+    <Content Include="Content\agency.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\modern-business.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\agency.js" />
+    <Content Include="Scripts\agency.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\contact_me.js" />
+    <Content Include="Scripts\jqBootstrapValidation.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -306,6 +323,7 @@
     <Content Include="Views\Tokens\Edit.cshtml" />
     <Content Include="Views\Tokens\Index.cshtml" />
     <Content Include="Views\Clients\Stripe.cshtml" />
+    <Content Include="Views\Clients\SpendToken.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -333,6 +351,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905292008528_dieoajd.resx">
       <DependentUpon>201905292008528_dieoajd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905301328596_djaidjo.resx">
+      <DependentUpon>201905301328596_djaidjo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905301513141_sfa.resx">
+      <DependentUpon>201905301513141_sfa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

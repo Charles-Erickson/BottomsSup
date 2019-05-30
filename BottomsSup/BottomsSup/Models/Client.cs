@@ -29,7 +29,8 @@ namespace BottomsSup.Models
        // public IEnumerable<User>
         
         public string FriendName { get; set; }
-        public bool FriendBool { get; set; }
+        public string SelectedDrink { get; set; }
+
 
         [Required]
         [Display(Name = "Date of Birth")]
