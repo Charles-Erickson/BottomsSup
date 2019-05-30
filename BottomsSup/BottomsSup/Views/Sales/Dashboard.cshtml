@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+<html>
+<head>
+    <script src="~/Scripts/Chart.js"></script>
+    <script src="~/Scripts/Chart.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        #chart_container{
+            width:800px;
+            height:400px;
+            border:1px solid #000000;
+            padding: 1px;
+            border-radius:4px;
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div id="chart_container">
+        <canvas id="bar_chart"></canvas>
+       
+
+    </div>
+
+    <script>
+        var totals = @Html.Raw(Json.Encode(ViewBag.Total));
+        var dates = @Html.Raw(Json.Encode(ViewBag.Dates));
+        var ctx = $("#bar_chart");
+        var barChart = new Chart(ctx, {
+            type: 'line',
+            data: [{
+                label: "Line Chart",
+                data: totals,
+                backgroundColor: ["blue"]
+            }]
+        },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    xAxes: [{ ticks: {beginAtZero:true}}]
+                },
+                legend: {display:false},
+            }
+
+    </script>
+
+
+
+</body>
+
+
+
+
+
+
+</html>

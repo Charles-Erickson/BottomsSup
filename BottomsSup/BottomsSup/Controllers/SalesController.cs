@@ -135,6 +135,22 @@ namespace BottomsSup.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public ActionResult Dashboard()
+        {
+            List<DateTime> dates = new List<DateTime>();
+            List<double> salesRecord = new List<double>();
+            var userId = User.Identity.GetUserId();
+            var bar = db.Bars.Where(b => b.ApplicationUserId == userId).Select(j => j.BarId).FirstOrDefault();
+            var salesTotal = db.Sales.Where(f => f.BarId == bar).Select(t=>t.TotalSales);
+            var salesDates = db.Sales.Where(w => w.BarId == bar).Select(v => v.DateOfSales);
+            salesRecord.AddRange(salesTotal);
+            dates.AddRange(salesDates);
+            ViewBag.Total = salesTotal;
+            ViewBag.Dates = salesDates;
+            return View();
+        }
+
     //    [HttpPost, ActionName("Chart")]
     //    [ValidateAntiForgeryToken]
     //    public ActionResult CreateChart(int id)
