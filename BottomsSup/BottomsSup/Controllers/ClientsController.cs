@@ -1,5 +1,6 @@
 ﻿using BottomsSup.Models;
 using Microsoft.AspNet.Identity;
+using Stripe;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,7 +15,7 @@ namespace BottomsSup.Controllers
 {
     public class ClientsController : Controller
     {
-
+        private 
 
         private ApplicationDbContext db = new ApplicationDbContext();
         HttpClient apiClient = new HttpClient();
@@ -180,6 +181,8 @@ namespace BottomsSup.Controllers
         {
             var customers = new StripeCustomerService();
             var charges = new StripeChargeService();
+            StripeConfiguration.SetApiKey(ConfigurationManager.AppSettings[APIKeys.StripeApi]);
+
 
             var customer = customers.Create(new StripeCustomerCreateOptions
             {
