@@ -146,7 +146,6 @@ namespace BottomsSup.Controllers
         {
             var bars = db.Bars;
             return View(bars);
-
         }
 
 

@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201905301906562_dsiuuhdia.Designer.cs">
       <DependentUpon>201905301906562_dsiuuhdia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905311346507_fiuosehfiuehfieuh.cs" />
+    <Compile Include="Migrations\201905311346507_fiuosehfiuehfieuh.Designer.cs">
+      <DependentUpon>201905311346507_fiuosehfiuehfieuh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bank.cs" />
@@ -365,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905301906562_dsiuuhdia.resx">
       <DependentUpon>201905301906562_dsiuuhdia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905311346507_fiuosehfiuehfieuh.resx">
+      <DependentUpon>201905311346507_fiuosehfiuehfieuh.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

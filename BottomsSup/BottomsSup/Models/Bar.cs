@@ -23,6 +23,8 @@ namespace BottomsSup.Models
         public string Lat { get; set; }
         public string Lng { get; set; }
         public string PhoneNumber { get; set; }
+        [DataType(DataType.Currency)]
+        public double Balance { get; set; }
         [DataType(DataType.Time)]
         public DateTime Open { get; set; }
         [DataType(DataType.Time)]

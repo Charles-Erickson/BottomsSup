@@ -40,6 +40,6 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
     @Html.ActionLink("Buy", "Stripe", new { id = Model.ClientId }) |
     @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("View Bar Flys", "FriendList") |
-    @Html.ActionLink("View Bars", "ViewBars")
+    @Html.ActionLink("View Bar Flys", "FriendList", new { id = Model.ClientId }) |
+    @Html.ActionLink("View Bars", "ClientBarList","Bars")
 </p>
