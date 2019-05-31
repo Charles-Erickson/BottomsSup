@@ -3,7 +3,7 @@
     ViewBag.Title = "Dashboard";
 }
 
-<h2>Dashboard</h2>
+<h2>Sales Record</h2>
 <html>
 <head>
     <script src="~/Scripts/Chart.js"></script>
@@ -36,24 +36,72 @@
     </div>
 
     <script>
-        var totals = @Html.Raw(Json.Encode(ViewBag.Total));
+        var totals = ViewBag.Total;
         var dates = @Html.Raw(Json.Encode(ViewBag.Dates));
         var ctx = $("#bar_chart");
-        var barChart = new Chart(ctx, {
+        var myChart = new Chart(ctx, {
             type: 'line',
-            data: [{
-                label: "Line Chart",
-                data: totals,
-                backgroundColor: ["blue"]
-            }]
-        },
+            data: totals{
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: ,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
             options: {
-                maintainAspectRatio: false,
                 scales: {
-                    xAxes: [{ ticks: {beginAtZero:true}}]
-                },
-                legend: {display:false},
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
             }
+        });
+
+
+
+
+
+
+
+
+        //var barChart = new Chart(ctx, {
+        //    type: 'line',
+        //    data
+        //    datasets:[{
+        //        label: "Line Chart",
+        //        data: [12,19,3,5,2,3]
+        //        backgroundColor: ["blue"],
+        //        borderWidth:1
+
+        //    }]
+
+        //},
+        //    options: {
+        //        maintainAspectRatio: false,
+        //        scales: {
+        //            xAxes: [{ ticks: {beginAtZero:true}}]
+        //        },
+        //        legend: {display:false},
+        //    }
 
     </script>
 

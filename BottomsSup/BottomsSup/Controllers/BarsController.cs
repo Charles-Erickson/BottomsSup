@@ -62,7 +62,7 @@ namespace BottomsSup.Controllers
                 bar.SalesRecord = db.Sales.Where(f => f.BarId == bar.BarId).ToList();
                 db.Bars.Add(bar);
                 db.SaveChanges();
-                return View("Details");
+                return RedirectToAction("Index");
             }
 
             ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", bar.ApplicationUserId);

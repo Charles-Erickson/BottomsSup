@@ -1,5 +1,7 @@
 ﻿using BottomsSup.Models;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Stripe;
 using System;
 using System.Collections.Generic;
@@ -17,8 +19,8 @@ namespace BottomsSup.Controllers
     {
 
         private ApplicationDbContext db = new ApplicationDbContext();
-        HttpClient apiClient = new HttpClient();
-
+      
+        
         // GET: Clients
         public ActionResult Index()
         {
@@ -183,9 +185,34 @@ namespace BottomsSup.Controllers
 
         public ActionResult Stripe()
         {
+            
+            //using (HttpClient clients = new HttpClient())
+            //{
+            //    string apiUrl = "http://localhost:49839/";
+            //    clients.BaseAddress = new Uri(apiUrl);
+            //    clients.DefaultRequestHeaders.Accept.Clear();
+            //    clients.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            //    HttpResponseMessage response = await clients.GetAsync(apiUrl);
+            //    var data = await response.Content.ReadAsStringAsync();
+
+            //    var jsonResults = JsonConvert.DeserializeObject<JObject>(data);
+
+            //    var results = jsonResults["results"][0];
+            //    var apiToken = results["tokens"]["get"];
+            //}
+            var ClientLoggedIn = User.Identity.GetUserId();
+            var client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
             var stripePublishKey = ConfigurationManager.AppSettings[APIKeys.StripeApi];
             ViewBag.StripePublishKey = stripePublishKey;
-            return View();
+            List<Tokens> tokens = new List<Tokens>();
+            var token = db.Tokens.Create();
+            tokens.AddRange(client.Tokens);
+            tokens.Add(token);
+            client.Tokens = tokens;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         //public ActionResult Charge(string stripeEmail, string stripeToken)
@@ -254,6 +281,7 @@ namespace BottomsSup.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SpendToken(int id, Client client)
         {
+            
             var ClientLoggedIn = User.Identity.GetUserId();
             client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
             var bar = db.Bars.Where(e => e.BarId == id).FirstOrDefault();

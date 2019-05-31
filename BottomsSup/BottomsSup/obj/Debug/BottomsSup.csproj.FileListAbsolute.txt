@@ -216,3 +216,4 @@ C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\Botto
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.dieoajd.resources
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.djaidjo.resources
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.sfa.resources
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.dsiuuhdia.resources

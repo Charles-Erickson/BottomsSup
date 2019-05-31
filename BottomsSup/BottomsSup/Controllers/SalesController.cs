@@ -146,8 +146,9 @@ namespace BottomsSup.Controllers
             var salesDates = db.Sales.Where(w => w.BarId == bar).Select(v => v.DateOfSales);
             salesRecord.AddRange(salesTotal);
             dates.AddRange(salesDates);
-            ViewBag.Total = salesTotal;
-            ViewBag.Dates = salesDates;
+
+            ViewBag.Total = salesTotal.ToArray();
+            ViewBag.Dates = salesDates.ToArray();
             return View();
         }
 
