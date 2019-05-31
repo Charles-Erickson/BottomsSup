@@ -147,7 +147,19 @@ namespace BottomsSup.Controllers
             var bars = db.Bars;
             return View(bars);
         }
+       
 
+        public ActionResult CashIn(int? id)
+        {
+            var bar = db.Bars.Find(id);
+            var item = bar.Tokens.Count();
+            for(int i = 0; i < item; i++)
+            {
+                bar.Balance = bar.Balance + 500;
+            }
+            db.SaveChanges();
+            return View(bar);
+        }
 
 
 
