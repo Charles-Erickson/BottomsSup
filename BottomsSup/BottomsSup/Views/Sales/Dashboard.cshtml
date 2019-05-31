@@ -4,48 +4,26 @@
 }
 
 <h2>Sales Record</h2>
+
 <html>
 <head>
     <script src="~/Scripts/Chart.js"></script>
     <script src="~/Scripts/Chart.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet"/>
-    <style>
-        #chart_container{
-            width:800px;
-            height:400px;
-            border:1px solid #000000;
-            padding: 1px;
-            border-radius:4px;
-        }
-
-
-    </style>
-
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
-
-
 <body>
-
-
-    <div id="chart_container">
-        <canvas id="bar_chart"></canvas>
-       
-
-    </div>
-
+    <canvas id="myChart" width="400" height="400"></canvas>
     <script>
-        var totals = ViewBag.Total;
-        var dates = @Html.Raw(Json.Encode(ViewBag.Dates));
-        var ctx = $("#bar_chart");
+        var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'line',
-            data: totals{
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            data: {
+                labels: ['05/01/2019', '05/02/2019', '05/03/2019', '05/04/2019', '05/05/2019', '05/06/2019'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: ,
+                    label: 'Total Sales',
+                    data: [6532, 4523, 18246, 20111, 19235, 8023],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -75,43 +53,8 @@
                 }
             }
         });
-
-
-
-
-
-
-
-
-        //var barChart = new Chart(ctx, {
-        //    type: 'line',
-        //    data
-        //    datasets:[{
-        //        label: "Line Chart",
-        //        data: [12,19,3,5,2,3]
-        //        backgroundColor: ["blue"],
-        //        borderWidth:1
-
-        //    }]
-
-        //},
-        //    options: {
-        //        maintainAspectRatio: false,
-        //        scales: {
-        //            xAxes: [{ ticks: {beginAtZero:true}}]
-        //        },
-        //        legend: {display:false},
-        //    }
-
     </script>
-
-
-
 </body>
-
-
-
-
-
-
 </html>
+
+<html>
