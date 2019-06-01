@@ -5,20 +5,17 @@
     ViewBag.Title = "ClientsBarView";
 }
 
-<h2>ClientsBarView</h2>
-
+<h2>Clients Bar View</h2>
+<h4>Bar Location</h4>
 <style>
-    /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
     #map {
-        height: 310px;
-        width: 450px;
+        height: 400px;
+        width: 100%;
     }
 </style>
+<html>
 
-<div>
-    <br />
-    <h4>Bar Location</h4>
+<body>
     <div id="map">
 
     </div>
@@ -39,7 +36,7 @@
                             lng: position.coords.longitude
                         };
                         infoWindow.setPosition(pos);
-                        infoWindow.setContent('Your Location!');
+                        
                         infoWindow.open(map);
                         map.setCenter(pos);
                     }, function () {
@@ -184,5 +181,6 @@
 
 
     </div>
-
+</body>
+</html>
 

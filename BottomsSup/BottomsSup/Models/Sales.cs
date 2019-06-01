@@ -26,6 +26,16 @@ namespace BottomsSup.Models
         public double TotalLabor { get; set; }
         public double LaborPercentage { get; set; }
 
+        [Display(Name = "First Date to Compare Sales")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime FirstDateToCompare { get; set; }
+
+        [Display(Name = "Second Date of Sales")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime SecondDateToCompare { get; set; }
+
         [ForeignKey("Bar")]
         public int BarId { get; set; }
         public Bar Bar { get; set; }
