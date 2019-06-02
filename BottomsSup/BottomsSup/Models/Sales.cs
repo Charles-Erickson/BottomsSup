@@ -31,7 +31,7 @@ namespace BottomsSup.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FirstDateToCompare { get; set; }
 
-        [Display(Name = "Second Date of Sales")]
+        [Display(Name = "Second Date to Compare Sales")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime SecondDateToCompare { get; set; }

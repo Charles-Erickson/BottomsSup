@@ -135,6 +135,17 @@ namespace BottomsSup.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult CompareSales([Bind(Include = "FirstDateOfSalesToCompare,SecondDateOfSalesToCompare")] Sales sales)
+        {
+            var BarLoggedIn = User.Identity.GetUserId();
+            var barId = db.Bars.Where(d => d.ApplicationUserId == BarLoggedIn).Select(f => f.BarId).FirstOrDefault();
+            var salesOne = db.Sales.Where(s => s.BarId == barId).Where(d => d.DateOfSales == d.FirstDateToCompare).FirstOrDefault();
+            var salestwo = db.Sales.Where(s => s.BarId == barId).Where(i => i.DateOfSales == i.SecondDateToCompare).FirstOrDefault();
+            Sales CompareSales = db.Sales.Add(salesOne);
+            CompareSales = db.Sales.Add(salestwo);
+            return View(CompareSales);
+        }
+
 
         public ActionResult Dashboard()
         {

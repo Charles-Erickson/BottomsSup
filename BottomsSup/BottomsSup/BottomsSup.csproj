@@ -342,6 +342,7 @@
     <Content Include="Views\Clients\Stripe.cshtml" />
     <Content Include="Views\Clients\SpendToken.cshtml" />
     <Content Include="Views\Sales\Dashboard.cshtml" />
+    <Content Include="Views\Sales\CompareSales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
