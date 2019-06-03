@@ -225,3 +225,4 @@ C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis.xml
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis.Core.pdb
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis.Core.xml
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.iuhuiuh.resources

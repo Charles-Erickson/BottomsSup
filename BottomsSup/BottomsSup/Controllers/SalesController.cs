@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.UI.DataVisualization.Charting;
+using System.Data.SqlTypes;
 
 namespace BottomsSup.Controllers
 {
@@ -141,7 +142,10 @@ namespace BottomsSup.Controllers
             var barId = db.Bars.Where(d => d.ApplicationUserId == BarLoggedIn).Select(f => f.BarId).FirstOrDefault();
             var salesOne = db.Sales.Where(s => s.BarId == barId).Where(d => d.DateOfSales == d.FirstDateToCompare).FirstOrDefault();
             var salestwo = db.Sales.Where(s => s.BarId == barId).Where(i => i.DateOfSales == i.SecondDateToCompare).FirstOrDefault();
+            UpdateDates(salesOne);
+            UpdateDates(salestwo);
             Sales CompareSales = db.Sales.Add(salesOne);
+            UpdateDates(CompareSales);
             CompareSales = db.Sales.Add(salestwo);
             return View(CompareSales);
         }
@@ -163,29 +167,47 @@ namespace BottomsSup.Controllers
             return View();
         }
 
-    //    [HttpPost, ActionName("Chart")]
-    //    [ValidateAntiForgeryToken]
-    //    public ActionResult CreateChart(int id)
-    //    {
-    //        //        //    new Chart(width: 800, height: 200)
-    //        //        //        .AddTitle("Sales Record")
-    //        //        //        .AddSeries(
+        //    [HttpPost, ActionName("Chart")]
+        //    [ValidateAntiForgeryToken]
+        //    public ActionResult CreateChart(int id)
+        //    {
+        //        //        //    new Chart(width: 800, height: 200)
+        //        //        //        .AddTitle("Sales Record")
+        //        //        //        .AddSeries(
 
-    //        //        //        xValue:
-
-
-    //        var data = Database.Open("Sales");
-    //    var dbdata = data.Query("SELECT Date,  FROM Sales");
-    //    var myChart = new Chart(width: 600, height: 400)
-    //       .AddTitle("Sales Record")
-    //       .DataBindTable(dataSource: dbdata, xField: "Date")
-    //       .Write();
-    //}
-
-    //}
+        //        //        //        xValue:
 
 
-    protected override void Dispose(bool disposing)
+        //        var data = Database.Open("Sales");
+        //    var dbdata = data.Query("SELECT Date,  FROM Sales");
+        //    var myChart = new Chart(width: 600, height: 400)
+        //       .AddTitle("Sales Record")
+        //       .DataBindTable(dataSource: dbdata, xField: "Date")
+        //       .Write();
+        //}
+
+        //}
+
+
+        public void UpdateDates(Sales sales)
+        {
+            if (sales.DateOfSales < SqlDateTime.MinValue.Value)
+            {
+                sales.DateOfSales = SqlDateTime.MinValue.Value;
+            }
+            if (sales.FirstDateToCompare< SqlDateTime.MinValue.Value)
+            {
+                sales.FirstDateToCompare = SqlDateTime.MinValue.Value;
+            }
+            if (sales.SecondDateToCompare < SqlDateTime.MinValue.Value)
+            {
+                sales.SecondDateToCompare = SqlDateTime.MinValue.Value;
+            }
+        }
+
+
+
+        protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
