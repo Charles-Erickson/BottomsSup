@@ -127,7 +127,7 @@ namespace BottomsSup.Controllers
         }
 
         // GET: Bars/Details/5
-        public ActionResult ClientBarView(int? id)
+        public ActionResult ClientBarView(int id)
         {
             if (id == null)
             {
@@ -153,13 +153,17 @@ namespace BottomsSup.Controllers
         {
             var bar = db.Bars.Find(id);
             var item = bar.Tokens.Count();
-            for(int i = 0; i < item; i++)
+            List<Tokens> tokens = new List<Tokens>();
+            for (int i = 0; i < item; i++)
             {
                 bar.Balance = bar.Balance + 500;
             }
+            bar.Tokens = tokens;
             db.SaveChanges();
             return View(bar);
         }
+
+      
 
 
 

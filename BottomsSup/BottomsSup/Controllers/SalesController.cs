@@ -64,10 +64,10 @@ namespace BottomsSup.Controllers
             {
                 var userId= User.Identity.GetUserId();
                 sales.BarId = db.Bars.Where(b => b.ApplicationUserId == userId).Select(j => j.BarId).FirstOrDefault();
-                //sales.TotalLabor= Convert.ToDouble(sales.TotalLabor);
                 var dailySales = Convert.ToDouble(sales.TotalSales);
                 var dailyLabor = Convert.ToDouble(sales.TotalLabor);
                 sales.LaborPercentage = dailyLabor / dailySales;
+                UpdateDates(sales);
                 db.Sales.Add(sales);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -103,6 +103,7 @@ namespace BottomsSup.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(sales).State = EntityState.Modified;
+                UpdateDates(sales);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -145,8 +146,9 @@ namespace BottomsSup.Controllers
             UpdateDates(salesOne);
             UpdateDates(salestwo);
             Sales CompareSales = db.Sales.Add(salesOne);
-            UpdateDates(CompareSales);
             CompareSales = db.Sales.Add(salestwo);
+            UpdateDates(CompareSales);
+           
             return View(CompareSales);
         }
 
@@ -161,7 +163,6 @@ namespace BottomsSup.Controllers
             var salesDates = db.Sales.Where(w => w.BarId == bar).Select(v => v.DateOfSales);
             salesRecord.AddRange(salesTotal);
             dates.AddRange(salesDates);
-
             ViewBag.Total = salesTotal.ToArray();
             ViewBag.Dates = salesDates.ToArray();
             return View();

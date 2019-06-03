@@ -287,6 +287,7 @@ namespace BottomsSup.Controllers
             var bar = db.Bars.Where(e => e.BarId == id).FirstOrDefault();
             if (client.Tokens.Count() > 0)
             {
+
                 List<Tokens> tokenList = new List<Tokens>();
                 List<Tokens> BarList = new List<Tokens>();
                 tokenList.AddRange(client.Tokens);
