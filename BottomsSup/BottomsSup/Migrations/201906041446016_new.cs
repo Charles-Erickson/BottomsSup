@@ -3,7 +3,7 @@ namespace BottomsSup.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class makd : DbMigration
+    public partial class _new : DbMigration
     {
         public override void Up()
         {
@@ -21,6 +21,7 @@ namespace BottomsSup.Migrations
                         Lat = c.String(),
                         Lng = c.String(),
                         PhoneNumber = c.String(),
+                        Balance = c.Double(nullable: false),
                         Open = c.DateTime(nullable: false),
                         Close = c.DateTime(nullable: false),
                         ApplicationUserId = c.String(maxLength: 128),
@@ -96,7 +97,7 @@ namespace BottomsSup.Migrations
                         LastName = c.String(nullable: false),
                         CreditCard = c.Int(nullable: false),
                         FriendName = c.String(),
-                        FriendBool = c.Boolean(nullable: false),
+                        SelectedDrink = c.String(),
                         DateOfBirth = c.DateTime(nullable: false),
                         ApplicationUserId = c.String(maxLength: 128),
                     })
@@ -123,6 +124,8 @@ namespace BottomsSup.Migrations
                         TotalSales = c.Double(nullable: false),
                         TotalLabor = c.Double(nullable: false),
                         LaborPercentage = c.Double(nullable: false),
+                        FirstDateToCompare = c.DateTime(nullable: false),
+                        SecondDateToCompare = c.DateTime(nullable: false),
                         BarId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.SalesId)

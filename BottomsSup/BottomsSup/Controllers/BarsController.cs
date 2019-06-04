@@ -127,7 +127,7 @@ namespace BottomsSup.Controllers
         }
 
         // GET: Bars/Details/5
-        public ActionResult ClientBarView(int id)
+        public ActionResult ClientsBarView(int id)
         {
             if (id == null)
             {

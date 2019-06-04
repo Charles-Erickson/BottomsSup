@@ -210,37 +210,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905291852342_makd.cs" />
-    <Compile Include="Migrations\201905291852342_makd.Designer.cs">
-      <DependentUpon>201905291852342_makd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905291926248_fiififi.cs" />
-    <Compile Include="Migrations\201905291926248_fiififi.Designer.cs">
-      <DependentUpon>201905291926248_fiififi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905292008528_dieoajd.cs" />
-    <Compile Include="Migrations\201905292008528_dieoajd.Designer.cs">
-      <DependentUpon>201905292008528_dieoajd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905301328596_djaidjo.cs" />
-    <Compile Include="Migrations\201905301328596_djaidjo.Designer.cs">
-      <DependentUpon>201905301328596_djaidjo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905301513141_sfa.cs" />
-    <Compile Include="Migrations\201905301513141_sfa.Designer.cs">
-      <DependentUpon>201905301513141_sfa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905301906562_dsiuuhdia.cs" />
-    <Compile Include="Migrations\201905301906562_dsiuuhdia.Designer.cs">
-      <DependentUpon>201905301906562_dsiuuhdia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201905311346507_fiuosehfiuehfieuh.cs" />
-    <Compile Include="Migrations\201905311346507_fiuosehfiuehfieuh.Designer.cs">
-      <DependentUpon>201905311346507_fiuosehfiuehfieuh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906031502368_iuhuiuh.cs" />
-    <Compile Include="Migrations\201906031502368_iuhuiuh.Designer.cs">
-      <DependentUpon>201906031502368_iuhuiuh.cs</DependentUpon>
+    <Compile Include="Migrations\201906041446016_new.cs" />
+    <Compile Include="Migrations\201906041446016_new.Designer.cs">
+      <DependentUpon>201906041446016_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -378,29 +350,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905291852342_makd.resx">
-      <DependentUpon>201905291852342_makd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905291926248_fiififi.resx">
-      <DependentUpon>201905291926248_fiififi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905292008528_dieoajd.resx">
-      <DependentUpon>201905292008528_dieoajd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905301328596_djaidjo.resx">
-      <DependentUpon>201905301328596_djaidjo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905301513141_sfa.resx">
-      <DependentUpon>201905301513141_sfa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905301906562_dsiuuhdia.resx">
-      <DependentUpon>201905301906562_dsiuuhdia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905311346507_fiuosehfiuehfieuh.resx">
-      <DependentUpon>201905311346507_fiuosehfiuehfieuh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906031502368_iuhuiuh.resx">
-      <DependentUpon>201906031502368_iuhuiuh.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906041446016_new.resx">
+      <DependentUpon>201906041446016_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

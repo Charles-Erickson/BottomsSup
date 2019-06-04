@@ -210,14 +210,6 @@ C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\System.Coll
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Stripe.net.pdb
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Stripe.net.xml
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\System.Collections.Immutable.xml
-C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.makd.resources
-C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.csproj.GenerateResource.cache
-C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.fiififi.resources
-C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.dieoajd.resources
-C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.djaidjo.resources
-C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.sfa.resources
-C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.dsiuuhdia.resources
-C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.fiuosehfiuehfieuh.resources
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis.Core.dll
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis.dll
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis.PlatformServices.dll
@@ -225,4 +217,5 @@ C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis.xml
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis.Core.pdb
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis.Core.xml
-C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.iuhuiuh.resources
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations._new.resources
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.csproj.GenerateResource.cache
