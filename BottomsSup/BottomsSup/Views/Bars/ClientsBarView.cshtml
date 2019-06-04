@@ -24,7 +24,7 @@
             var map, infoWindow;
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
-                    center: { lat: -34.39, lng: 150.644 },
+                    center: { lat: @Model.Lat, lng:@Model.Lng },
                     zoom: 8
                 });
                 infoWindow = new google.maps.InfoWindow;
@@ -159,11 +159,10 @@
             </dd><br />
 
 
-            <p>
-                @Html.ActionLink("Back to View Bars", "ClientBarList", "Bar")
-            </p>
-
-
+                 <p>
+                     @Html.ActionLink("Back to View Bars", "ClientsBarList", "Bar")|
+                     @Html.ActionLink("Spend a Token", "SpendToken", "Client")
+                 </p>
 
         </div>
 

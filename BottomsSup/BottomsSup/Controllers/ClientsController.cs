@@ -182,25 +182,46 @@ namespace BottomsSup.Controllers
             return View(client);
         }
 
-
-        public ActionResult Stripe()
+        public ActionResult addToken(int? id)
         {
-            
-            //using (HttpClient clients = new HttpClient())
-            //{
-            //    string apiUrl = "http://localhost:49839/";
-            //    clients.BaseAddress = new Uri(apiUrl);
-            //    clients.DefaultRequestHeaders.Accept.Clear();
-            //    clients.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            var client = db.Clients.Find(id);
+            List<Tokens> tokens = new List<Tokens>();
+            var token = db.Tokens.Create();
+            if (client.Tokens==null)
+            {
+                tokens.Add(token);
+                client.Tokens = tokens;
+                return View(client);
+            }
+            else
+            {
+                tokens.Add(token);
+                tokens.AddRange(client.Tokens);
+                client.Tokens = tokens;
+                return View(client);
+            }
+        }
 
-            //    HttpResponseMessage response = await clients.GetAsync(apiUrl);
-            //    var data = await response.Content.ReadAsStringAsync();
 
-            //    var jsonResults = JsonConvert.DeserializeObject<JObject>(data);
+        [HttpPost, ActionName("BuyTokens")]
+        public async System.Threading.Tasks.Task<ActionResult> StripeAsync()
+        {
 
-            //    var results = jsonResults["results"][0];
-            //    var apiToken = results["tokens"]["get"];
-            //}
+            using (HttpClient http = new HttpClient())
+            {
+                string apiUrl = "http://localhost:49839/";
+                http.BaseAddress = new Uri(apiUrl);
+                http.DefaultRequestHeaders.Accept.Clear();
+                http.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await http.GetAsync(apiUrl);
+                var data = await response.Content.ReadAsStringAsync();
+
+                var jsonResults = JsonConvert.DeserializeObject<JObject>(data);
+
+                var results = jsonResults["results"][0];
+                var apiToken = results["tokens"]["get"];
+            }
             var ClientLoggedIn = User.Identity.GetUserId();
             var client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
             var stripePublishKey = ConfigurationManager.AppSettings[APIKeys.StripeApi];
@@ -241,7 +262,7 @@ namespace BottomsSup.Controllers
         //    return View();
         //}
 
-        public ActionResult BarFlyList()
+        public ActionResult FriendList()
         {
 
             //var ClientLoggedIn = User.Identity.GetUserId();
@@ -251,11 +272,17 @@ namespace BottomsSup.Controllers
 
         }
 
+        [HttpPost, ActionName("ViewBarFlys")]
+        public ActionResult ViewBarFlys()
+        {
 
+            return RedirectToAction("ClientBarList");
+
+        }
 
         [HttpPost, ActionName("SendToken")]
         [ValidateAntiForgeryToken]
-        public ActionResult SendToken([Bind(Include = "SelectedDrink")] Client client, int id)
+        public ActionResult SendToken(Client client, int id)
         {
             var ClientLoggedIn = User.Identity.GetUserId();
             client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();

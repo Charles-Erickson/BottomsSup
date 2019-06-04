@@ -235,6 +235,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\magicscroll.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\modern-business.css" />
     <Content Include="Content\normalize.css" />
@@ -265,6 +266,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\magicscroll.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
@@ -331,6 +333,7 @@
     <Content Include="Views\Sales\CompareSales.cshtml" />
     <Content Include="Views\Shared\_LayoutClient.cshtml" />
     <Content Include="Views\Shared\_LayoutBar.cshtml" />
+    <Content Include="Views\Clients\BarFlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

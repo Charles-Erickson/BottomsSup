@@ -2,18 +2,38 @@
     ViewBag.Title = "Home Page";
 }
 
+
+<head>
+    <link type="text/css" rel="stylesheet" href="~/Content/magicscroll.css/">
+
+    @*<link type="text/css" rel="stylesheet" href="magicscroll/magicscroll.css" />*@
+
+</head>
+
+
 <div class="jumbotron">
     <h1>Bottoms Sup</h1>
     <p class="lead">Bottoms Sup is an application that connects bars to users and users to their friends.</p>
+</div>
+
+
+<div class="MagicScroll" data-options="autoplay: 1000; step: 1; mode: carousel; height: 275px;">
+    @*<a href="/page-1/">><img src="https://media-cdn.tripadvisor.com/media/photo-s/16/c7/8e/11/main-bar.jpg" /></a>*@
+    <a href="/page-1/">><img src="https://www.oldport.com/wp-content/uploads/2018/02/MBabin_Portland_Blyth_Burrows_HR_10_JK.jpg" /></a>
+    <a href="/page-2/">><img src="https://www.oldport.com/wp-content/uploads/2018/02/MBabin_Portland_Blyth_Burrows_HR_07.jpg" /></a>
+    <a href="/page-3/">><img src="https://static1.squarespace.com/static/58e275e8197aea8ba609c0f7/595558774c8b03d000fc7b20/59fcabfbe2c48381d572927b/1509731357384/IMG_3589-Edit+%285%29_mini.jpg?format=1500w" /></a>
+    @*<a><img src="..." /></a>*@
 </div>
 
 <div class="row">
     <div class="col-md-4">
         <h2>Sign up and and pick up the next round</h2>
         <p>
-           
+
         </p>
-    
+
     </div>
-  
+
 </div>
+
+<script type="text/javascript" src="~/Scripts/magicscroll.js"></script>
