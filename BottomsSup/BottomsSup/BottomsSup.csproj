@@ -357,6 +357,8 @@
     <Content Include="Views\Clients\SpendToken.cshtml" />
     <Content Include="Views\Sales\Dashboard.cshtml" />
     <Content Include="Views\Sales\CompareSales.cshtml" />
+    <Content Include="Views\Shared\_LayoutClient.cshtml" />
+    <Content Include="Views\Shared\_LayoutBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

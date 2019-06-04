@@ -78,6 +78,7 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BarId }) |
     @Html.ActionLink("Back to List", "Index")|
+    @Html.ActionLink("Cash in Tokens", "CashIn", new { id = Model.BarId })|
     @Html.ActionLink("Record Sales", "Create", "Sales")|
     @Html.ActionLink("View Sales Records", "Details", "Sales")|
     @Html.ActionLink("View Sales chart", "Dashboard", "Sales") |

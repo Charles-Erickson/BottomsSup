@@ -152,6 +152,14 @@ namespace BottomsSup.Controllers
         public ActionResult CashIn(int? id)
         {
             var bar = db.Bars.Find(id);
+            if (id== null)
+            {
+                return HttpNotFound();
+            }
+            if (bar.Tokens == null)
+            {
+                return HttpNotFound();
+            }
             var item = bar.Tokens.Count();
             List<Tokens> tokens = new List<Tokens>();
             for (int i = 0; i < item; i++)
