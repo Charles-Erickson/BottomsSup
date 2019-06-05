@@ -47,6 +47,19 @@ namespace BottomsSup.Controllers
             return View(client);
         }
 
+
+        public ActionResult ClientProfile()
+        {
+            var ClientLoggedIn = User.Identity.GetUserId();
+            Client client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+            if (client == null)
+            {
+                return HttpNotFound();
+            }
+            return View(client);
+        }
+
+
         // GET: Clients/Create
         public ActionResult Create()
         {
@@ -65,7 +78,7 @@ namespace BottomsSup.Controllers
                     //client.Age = GetAge(client.DateOfBirth);
                     db.Clients.Add(client);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("ClientProfile");
                 }
 
             ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", client.ApplicationUserId);
@@ -152,60 +165,72 @@ namespace BottomsSup.Controllers
                 var ClientLoggedIn = User.Identity.GetUserId();
                 client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
                 List<Client> friends = new List<Client>();
-                friends.AddRange(client.Friends);
-                friends.Add(friend);
-                client.Friends = friends;
-                
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (client.Friends == null)
+                {
+                    friends.Add(friend);
+                    client.Friends = friends;
+                    db.SaveChanges();
+                    return RedirectToAction("ClientProfile");
+                }
+                else
+                {
+                    friends.AddRange(client.Friends);
+                    friends.Add(friend);
+                    client.Friends = friends;
+                    db.SaveChanges();
+                    return RedirectToAction("ClientProfile");
+                }
             }
             client = null;
             return View(client);
         }
-
-        public ActionResult friendSearch(Client client)
+        [HttpPost]
+        public ActionResult friendSearch(string name)
         {
-      
+            var clients = db.Clients;
             if (ModelState.IsValid)
             {
-                var matchs = db.Clients.Where(d => d.FirstName == client.FirstName || d.LastName == client.LastName);
+           
+                var matchs = db.Clients.Where(d => d.FirstName == name || d.LastName == name);
                 return View(matchs);
             }
-            return View(client);
+            return View(clients);
         }
 
 
-        public ActionResult SearchFriends([Bind(Include = "FriendName")] int id)
-        {
-            Client client = db.Clients.Find(id);
-            db.Entry(client).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("friendSearch");
-        }
+        //public ActionResult SearchFriends(string name)
+        //{
+        //    Client client = db.Clients.Find(id);
+        //    db.Entry(client).State = EntityState.Modified;
+        //    db.SaveChanges();
+        //    return RedirectToAction("friendSearch");
+        //}
 
 
 
         public ActionResult addToken()
         {
             var ClientLoggedIn = User.Identity.GetUserId();
-            var client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();           
-            List<Tokens> tokens = new List<Tokens>();
-            var token = db.Tokens.Create();
-            if (client.Tokens==null)
-            {
-                tokens.Add(token);
-                client.Tokens = tokens;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                tokens.AddRange(client.Tokens);
-                tokens.Add(token);
-                client.Tokens = tokens;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            var client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+
+            client.Tokens = client.Tokens +1;
+            //List<Tokens> tokens = new List<Tokens>();
+            //var token = db.Tokens.Create();
+            //if (client.Tokens==null)
+            //{
+            //    tokens.Add(token);
+            //    client.Tokens = tokens;
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+            //else
+            //{
+            //    tokens.AddRange(client.Tokens);
+            //    tokens.Add(token);
+            //    client.Tokens = tokens;
+            db.SaveChanges();
+            return RedirectToAction("ClientProfile");
+
         }
 
 
@@ -279,18 +304,20 @@ namespace BottomsSup.Controllers
             var ClientLoggedIn = User.Identity.GetUserId();
             client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
             var friend = db.Clients.Where(e => e.ClientId == id).FirstOrDefault();
-            if (client.Tokens.Count() > 0)
+            if (client.Tokens > 0)
             {
-                List<Tokens> tokenList = new List<Tokens>();
-                List<Tokens> friendList = new List<Tokens>();
-                tokenList.AddRange(client.Tokens);
-                tokenList.RemoveAt(0);
-                var token = db.Tokens.Create();
-                friendList.Add(token);
-                client.Tokens = tokenList;
-                friend.Tokens = friendList;
+                client.Tokens = client.Tokens - 1;
+                friend.Tokens = friend.Tokens + 1;
+                //List<Tokens> tokenList = new List<Tokens>();
+                //List<Tokens> friendList = new List<Tokens>();
+                //tokenList.AddRange(client.Tokens);
+                //tokenList.RemoveAt(0);
+                //var token = db.Tokens.Create();
+                //friendList.Add(token);
+                //client.Tokens = tokenList;
+                //friend.Tokens = friendList;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ClientProfile");
             }
             return View(client);
         }
@@ -303,19 +330,20 @@ namespace BottomsSup.Controllers
             var ClientLoggedIn = User.Identity.GetUserId();
             client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
             var bar = db.Bars.Where(e => e.BarId == id).FirstOrDefault();
-            if (client.Tokens.Count() > 0)
+            if (client.Tokens> 0)
             {
-
-                List<Tokens> tokenList = new List<Tokens>();
-                List<Tokens> BarList = new List<Tokens>();
-                tokenList.AddRange(client.Tokens);
-                tokenList.RemoveAt(0);
-                var token = db.Tokens.Create();
-                BarList.Add(token);
-                client.Tokens = tokenList;
-                bar.Tokens = BarList;
+                client.Tokens = client.Tokens - 1;
+                bar.Tokens = bar.Tokens + 1;
+                //List<Tokens> tokenList = new List<Tokens>();
+                //List<Tokens> BarList = new List<Tokens>();
+                //tokenList.AddRange(client.Tokens);
+                //tokenList.RemoveAt(0);
+                //var token = db.Tokens.Create();
+                //BarList.Add(token);
+                //client.Tokens = tokenList;
+                //bar.Tokens = BarList;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ClientProfile");
             }
             return View(client);
         }

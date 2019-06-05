@@ -239,6 +239,10 @@
     <Compile Include="Migrations\201906051556173_test.Designer.cs">
       <DependentUpon>201906051556173_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906052100067_dhfuehioa.cs" />
+    <Compile Include="Migrations\201906052100067_dhfuehioa.Designer.cs">
+      <DependentUpon>201906052100067_dhfuehioa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bank.cs" />
@@ -400,6 +404,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Clients\ViewBarFlys.cshtml" />
+    <Content Include="Views\Clients\ClientProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -417,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906051556173_test.resx">
       <DependentUpon>201906051556173_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906052100067_dhfuehioa.resx">
+      <DependentUpon>201906052100067_dhfuehioa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

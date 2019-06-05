@@ -25,7 +25,7 @@ namespace BottomsSup.Models
         public int CreditCard { get; set; }
 
         public IEnumerable<Client> Friends { get; set; }
-        public IEnumerable<Tokens> Tokens { get; set; }
+        public int Tokens { get; set; }
        // public IEnumerable<User>
         
         public string FriendName { get; set; }

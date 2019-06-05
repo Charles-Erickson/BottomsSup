@@ -242,3 +242,4 @@ C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Stripe.net.
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Stripe.net.xml
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Zlib.Portable.xml
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.csproj.App.config
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.dhfuehioa.resources
