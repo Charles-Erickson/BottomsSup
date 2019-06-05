@@ -142,8 +142,7 @@ namespace BottomsSup.Controllers
 //        var service = new ChargeService();
 //        Charge charge = service.Create(options);
 
-       [HttpPost, ActionName("AddFriend")]
-        [ValidateAntiForgeryToken]
+
         public ActionResult AddFriend(int id)
         {
             Client client;
@@ -175,8 +174,7 @@ namespace BottomsSup.Controllers
             return View(client);
         }
 
-    [HttpPost, ActionName("SearchFriends")]
-        [ValidateAntiForgeryToken]
+
         public ActionResult SearchFriends([Bind(Include = "FriendName")] int id)
         {
             Client client = db.Clients.Find(id);
@@ -186,7 +184,7 @@ namespace BottomsSup.Controllers
         }
 
 
-        [HttpPost, ActionName("addToken")]
+
         public ActionResult addToken()
         {
             var ClientLoggedIn = User.Identity.GetUserId();
@@ -198,7 +196,7 @@ namespace BottomsSup.Controllers
                 tokens.Add(token);
                 client.Tokens = tokens;
                 db.SaveChanges();
-                return View(client);
+                return RedirectToAction("Index");
             }
             else
             {
@@ -206,7 +204,7 @@ namespace BottomsSup.Controllers
                 tokens.Add(token);
                 client.Tokens = tokens;
                 db.SaveChanges();
-                return View(client);
+                return RedirectToAction("Index");
             }
         }
 
@@ -225,9 +223,10 @@ namespace BottomsSup.Controllers
                 http.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage response = await http.GetAsync(apiUrl);
                 string data = await response.Content.ReadAsStringAsync();
-                var jsonResults = JsonConvert.DeserializeObject<JObject>(data);
-                var results = jsonResults["results"][0];
-                var apiToken = results["tokens"]["get"];
+                //var jsonResults = JsonConvert.DeserializeObject<JObject>(data);
+                //var jsonResults = JsonConvert.DeserializeObject<JObject>(data);
+                //var results = jsonResults["results"][0];
+                //var apiToken = results["tokens"]["get"];
                 return RedirectToAction("addToken");
             }
         }
@@ -267,15 +266,14 @@ namespace BottomsSup.Controllers
             return View(friends);
         }
 
-        [HttpPost, ActionName("ViewBarFlys")]
+  
         public ActionResult ViewBarFlys()
         {
             var clients = db.Clients;
             return View(clients);
         }
 
-        [HttpPost, ActionName("SendToken")]
-        [ValidateAntiForgeryToken]
+
         public ActionResult SendToken(Client client, int id)
         {
             var ClientLoggedIn = User.Identity.GetUserId();
@@ -298,8 +296,7 @@ namespace BottomsSup.Controllers
         }
 
 
-        [HttpPost, ActionName("SpendToken")]
-        [ValidateAntiForgeryToken]
+
         public ActionResult SpendToken(int id, Client client)
         {
             
@@ -323,13 +320,13 @@ namespace BottomsSup.Controllers
             return View(client);
         }
 
-        [HttpPost, ActionName("ViewBars")]
-        public ActionResult ViewBars ()
-        {
-            //BarsController bar = new BarsController();
-            return RedirectToAction("ClientBarList");
+        //[HttpPost, ActionName("ViewBars")]
+        //public ActionResult ViewBars ()
+        //{
+        //    //BarsController bar = new BarsController();
+        //    return RedirectToAction("ClientBarList");
            
-        }
+        //}
 
 
 
