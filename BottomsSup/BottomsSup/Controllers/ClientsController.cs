@@ -164,46 +164,59 @@ namespace BottomsSup.Controllers
             return View(client);
         }
 
-
-        [HttpPost, ActionName("SearchFriends")]
-        [ValidateAntiForgeryToken]
-        public ActionResult SearchFriends([Bind(Include = "FriendName")] int id)
+        public ActionResult friendSearch()
         {
-            Client client = db.Clients.Find(id);
-            
+            var client = db.Clients;
             if (ModelState.IsValid)
             {
-                db.Entry(client).State = EntityState.Modified;
-                db.SaveChanges();
-                var matchs = db.Clients.Where(d => d.FirstName == client.FirstName || d.LastName == client.LastName);
+
+                var matchs = db.Clients.Where(d => d.FirstName == client. FirstName || d.LastName == client);
+                client = matchs;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(client);
         }
 
-        public ActionResult addToken(int? id)
+    [HttpPost, ActionName("SearchFriends")]
+        [ValidateAntiForgeryToken]
+        public ActionResult SearchFriends([Bind(Include = "FriendName")] int id)
         {
-            var client = db.Clients.Find(id);
+            Client client = db.Clients.Find(id);
+            db.Entry(client).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("friendSearch");
+        }
+
+
+        [HttpPost, ActionName("addToken")]
+        public ActionResult addToken()
+        {
+            var ClientLoggedIn = User.Identity.GetUserId();
+            var client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();           
             List<Tokens> tokens = new List<Tokens>();
             var token = db.Tokens.Create();
             if (client.Tokens==null)
             {
                 tokens.Add(token);
                 client.Tokens = tokens;
+                db.SaveChanges();
                 return View(client);
             }
             else
             {
-                tokens.Add(token);
                 tokens.AddRange(client.Tokens);
+                tokens.Add(token);
                 client.Tokens = tokens;
+                db.SaveChanges();
                 return View(client);
             }
         }
 
 
-        [HttpPost, ActionName("BuyTokens")]
+        //var stripePublishKey = ConfigurationManager.AppSettings[APIKeys.StripeApi];
+        //ViewBag.StripePublishKey = stripePublishKey;
+
         public async System.Threading.Tasks.Task<ActionResult> StripeAsync()
         {
 
@@ -213,27 +226,13 @@ namespace BottomsSup.Controllers
                 http.BaseAddress = new Uri(apiUrl);
                 http.DefaultRequestHeaders.Accept.Clear();
                 http.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
                 HttpResponseMessage response = await http.GetAsync(apiUrl);
-                var data = await response.Content.ReadAsStringAsync();
-
+                string data = await response.Content.ReadAsStringAsync();
                 var jsonResults = JsonConvert.DeserializeObject<JObject>(data);
-
                 var results = jsonResults["results"][0];
                 var apiToken = results["tokens"]["get"];
+                return RedirectToAction("addToken");
             }
-            var ClientLoggedIn = User.Identity.GetUserId();
-            var client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
-            var stripePublishKey = ConfigurationManager.AppSettings[APIKeys.StripeApi];
-            ViewBag.StripePublishKey = stripePublishKey;
-            List<Tokens> tokens = new List<Tokens>();
-            var token = db.Tokens.Create();
-            tokens.AddRange(client.Tokens);
-            tokens.Add(token);
-            client.Tokens = tokens;
-            db.SaveChanges();
-
-            return RedirectToAction("Index");
         }
 
         //public ActionResult Charge(string stripeEmail, string stripeToken)
@@ -264,20 +263,18 @@ namespace BottomsSup.Controllers
 
         public ActionResult FriendList()
         {
-
-            //var ClientLoggedIn = User.Identity.GetUserId();
-            //var client = db.Clients.Select(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
-            var client = db.Clients;
-            return View(client);
-
+            var ClientLoggedIn = User.Identity.GetUserId();
+            var client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+            List<Client> friends = new List<Client>();
+            friends.AddRange(client.Friends);
+            return View(friends);
         }
 
         [HttpPost, ActionName("ViewBarFlys")]
         public ActionResult ViewBarFlys()
         {
-
-            return RedirectToAction("ClientBarList");
-
+            var clients = db.Clients;
+            return View(clients);
         }
 
         [HttpPost, ActionName("SendToken")]

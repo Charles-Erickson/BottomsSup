@@ -38,8 +38,9 @@
 <p>
     @Html.ActionLink("Search for Friends", "SearchFriends", new { id = Model.ClientId }) |
     @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
-    @Html.ActionLink("Buy token", "BuyToken", new { id = Model.ClientId }) |
+    @Html.ActionLink("Buy token", "StripeAsync", "Clients", new { id = Model.ClientId }) |
     @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("View Bar Flys", "FriendList", new { id = Model.ClientId }) |
-    @Html.ActionLink("View Bars", "ClientBarList", "Bars")
+    @Html.ActionLink("View Friends", "FriendList", new { id = Model.ClientId }) |
+    @Html.ActionLink("View Bars", "ClientBarList", "Bars")|
+    @Html.ActionLink("View Bar Flys", "ViewBarFlys", new { id = Model.ClientId }) 
 </p>

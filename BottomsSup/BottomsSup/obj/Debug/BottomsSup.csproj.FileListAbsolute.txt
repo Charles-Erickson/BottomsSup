@@ -58,7 +58,6 @@ C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Microsoft.A
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Microsoft.Owin.dll
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Microsoft.Owin.Security.Cookies.dll
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Microsoft.Owin.Security.dll
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Microsoft.Owin.Security.Facebook.dll
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Microsoft.Owin.Security.Google.dll
@@ -217,5 +216,13 @@ C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis.xml
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis.Core.pdb
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Google.Apis.Core.xml
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\roslyn\System.Net.Http.dll
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\roslyn\System.Net.Sockets.dll
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\roslyn\System.Threading.Tasks.Extensions.dll
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations._new.resources
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.csproj.GenerateResource.cache
