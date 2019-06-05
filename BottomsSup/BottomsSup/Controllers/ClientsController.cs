@@ -164,16 +164,13 @@ namespace BottomsSup.Controllers
             return View(client);
         }
 
-        public ActionResult friendSearch()
+        public ActionResult friendSearch(Client client)
         {
-            var client = db.Clients;
+      
             if (ModelState.IsValid)
             {
-
-                var matchs = db.Clients.Where(d => d.FirstName == client. FirstName || d.LastName == client);
-                client = matchs;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var matchs = db.Clients.Where(d => d.FirstName == client.FirstName || d.LastName == client.LastName);
+                return View(matchs);
             }
             return View(client);
         }
