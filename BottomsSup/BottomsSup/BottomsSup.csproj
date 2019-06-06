@@ -405,6 +405,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Clients\ViewBarFlys.cshtml" />
     <Content Include="Views\Clients\ClientProfile.cshtml" />
+    <Content Include="Views\Clients\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

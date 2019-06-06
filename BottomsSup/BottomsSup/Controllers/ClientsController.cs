@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Stripe;
+using Stripe.Checkout;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -321,6 +322,57 @@ namespace BottomsSup.Controllers
             }
             return View(client);
         }
+
+
+        public ActionResult Checkout(int? id)
+        {
+            StripeConfiguration.SetApiKey(APIKeys.StripeApi);
+
+            var options = new SessionCreateOptions
+            {
+                PaymentMethodTypes = new List<string> {
+        "card",
+    },
+                LineItems = new List<SessionLineItemOptions> {
+        new SessionLineItemOptions {
+            Name = "Drink Token",
+            Description = "Token for Bottoms Sup",
+            Amount = 500,
+            Currency = "usd",
+            Quantity = 1,
+        },
+    },
+                SuccessUrl = "https://example.com/success",
+                CancelUrl = "https://example.com/cancel",
+            };
+
+            var service = new SessionService();
+            Session session = service.Create(options);
+            return RedirectToAction("PickUpTab");
+        }
+
+
+
+        public ActionResult PickUpTab(int? id)
+        {
+            StripeConfiguration.SetApiKey(APIKeys.StripeApi);
+
+            // Token is created using Checkout or Elements!
+            // Get the payment token submitted by the form:
+            //var coin = model.Token; // Using ASP.NET MVC
+
+            //var options = new ChargeCreateOptions
+            //{
+            //    Amount = 500,
+            //    Currency = "usd",
+            //    Description = " charge",
+            //    SourceId = coin,
+            //};
+            //var service = new ChargeService();
+            //Charge charge = service.Create(options);
+            return RedirectToAction("StripeAsync");
+        }
+
 
 
 
