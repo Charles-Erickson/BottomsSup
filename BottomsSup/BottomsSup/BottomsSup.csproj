@@ -223,6 +223,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BarsController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\FriendsController.cs" />
     <Compile Include="Controllers\GeoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -412,6 +413,11 @@
     <Content Include="Views\Clients\ClientProfile.cshtml" />
     <Content Include="Views\Clients\Checkout.cshtml" />
     <Content Include="Views\Sales\SalesCompared.cshtml" />
+    <Content Include="Views\Friends\Create.cshtml" />
+    <Content Include="Views\Friends\Delete.cshtml" />
+    <Content Include="Views\Friends\Details.cshtml" />
+    <Content Include="Views\Friends\Edit.cshtml" />
+    <Content Include="Views\Friends\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

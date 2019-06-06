@@ -37,5 +37,7 @@ namespace BottomsSup.Models
         public string UserName { get; set; }
 
         public System.Data.Entity.DbSet<BottomsSup.Models.Tokens> Tokens { get; set; }
+
+        public System.Data.Entity.DbSet<BottomsSup.Models.Friends> Friends { get; set; }
     }
 }
