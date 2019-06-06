@@ -49,7 +49,7 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
     @Html.ActionLink("Buy token", "StripeAsync", "Clients", new { id = Model.ClientId }) |
     @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("View Friends", "FriendList","Friends", new { id = Model.ClientId }) |
+    @Html.ActionLink("View Friends", "FriendList","Friends", new { id = Model.ClientId },null) |
     @Html.ActionLink("View Bars", "ClientBarList", "Bars")|
     @Html.ActionLink("View Bar Flys", "ViewBarFlys", new { id = Model.ClientId })
 </p>
