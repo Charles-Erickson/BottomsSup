@@ -47,9 +47,11 @@
             @Html.DisplayFor(modelItem => item.LaborPercentage)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SalesId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SalesId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SalesId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.SalesId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.SalesId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SalesId })
+            @Html.ActionLink("Compare Sales", "CompareSales", new { id = item.SalesId })
+
         </td>
     </tr>
 }

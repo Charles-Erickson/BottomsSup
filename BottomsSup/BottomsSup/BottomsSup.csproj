@@ -243,11 +243,16 @@
     <Compile Include="Migrations\201906052100067_dhfuehioa.Designer.cs">
       <DependentUpon>201906052100067_dhfuehioa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906061641068_dsjiksajd.cs" />
+    <Compile Include="Migrations\201906061641068_dsjiksajd.Designer.cs">
+      <DependentUpon>201906061641068_dsjiksajd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bank.cs" />
     <Compile Include="Models\Bar.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Friends.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Sales.cs" />
@@ -406,6 +411,7 @@
     <Content Include="Views\Clients\ViewBarFlys.cshtml" />
     <Content Include="Views\Clients\ClientProfile.cshtml" />
     <Content Include="Views\Clients\Checkout.cshtml" />
+    <Content Include="Views\Sales\SalesCompared.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -426,6 +432,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906052100067_dhfuehioa.resx">
       <DependentUpon>201906052100067_dhfuehioa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906061641068_dsjiksajd.resx">
+      <DependentUpon>201906061641068_dsjiksajd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

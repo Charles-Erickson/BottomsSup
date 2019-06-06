@@ -137,6 +137,31 @@ namespace BottomsSup.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+
+
+    
+        public ActionResult CompareSales(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Sales sales = db.Sales.Find(id);
+            if (sales == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.BarId = new SelectList(db.Bars, "BarId", "BarName", sales.BarId);
+            return View(sales);
+        }
+
+        // POST: Sales/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CompareSales([Bind(Include = "FirstDateOfSalesToCompare,SecondDateOfSalesToCompare")] Sales sales)
         {
             var BarLoggedIn = User.Identity.GetUserId();
@@ -149,8 +174,26 @@ namespace BottomsSup.Controllers
             CompareSales = db.Sales.Add(salestwo);
             UpdateDates(CompareSales);
            
-            return View(CompareSales);
+            return RedirectToAction("SalesCompared");
         }
+
+
+        
+        public ActionResult SalesCompared()
+        {
+
+            var userId = User.Identity.GetUserId();
+            var BarId = db.Bars.Where(b => b.ApplicationUserId == userId).Select(j => j.BarId).FirstOrDefault();
+            var dates= db.Sales.Where(j => j.BarId == BarId).Where(k => k.DateOfSales == k.SecondDateToCompare).FirstOrDefault();
+            Sales sales = db.Sales.Where(j => j.BarId == BarId).Where(k => k.DateOfSales == k.FirstDateToCompare).FirstOrDefault();
+            return View(sales);
+        }
+
+        // POST: Sales/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
 
 
         public ActionResult Dashboard()
