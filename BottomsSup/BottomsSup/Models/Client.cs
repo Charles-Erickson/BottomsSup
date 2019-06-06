@@ -20,11 +20,11 @@ namespace BottomsSup.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
-        [DataType(DataType.CreditCard)]
-        public int CreditCard { get; set; }
+        //[Required]
+        //[DataType(DataType.CreditCard)]
+        //public int CreditCard { get; set; }
 
-        public IEnumerable<Client> Friends { get; set; }
+        //public IEnumerable<Client> Friends { get; set; }
         public int Tokens { get; set; }
        // public IEnumerable<User>
         

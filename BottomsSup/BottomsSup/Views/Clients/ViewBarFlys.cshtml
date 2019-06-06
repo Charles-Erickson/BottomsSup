@@ -50,7 +50,7 @@
             <td>
 
                 @Html.ActionLink("Send Token", "SendToken", new { id = item.ClientId }) |
-                @Html.ActionLink("Add Friend", "AddFriend", new { id = item.ClientId }) |
+                @Html.ActionLink("Add Friend", "Create","Friends", new { id = item.ClientId }, null) 
             </td>
         </tr>
     }

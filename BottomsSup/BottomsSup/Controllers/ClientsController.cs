@@ -157,34 +157,34 @@ namespace BottomsSup.Controllers
 //        Charge charge = service.Create(options);
 
 
-        public ActionResult AddFriend(int id)
-        {
-            Client client;
-            if (ModelState.IsValid)
-            {
-                Client friend = db.Clients.Where(h => h.ClientId == id).FirstOrDefault();
-                var ClientLoggedIn = User.Identity.GetUserId();
-                client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
-                List<Client> friends = new List<Client>();
-                if (client.Friends == null)
-                {
-                    friends.Add(friend);
-                    client.Friends = friends;
-                    db.SaveChanges();
-                    return RedirectToAction("ClientProfile");
-                }
-                else
-                {
-                    friends.AddRange(client.Friends);
-                    friends.Add(friend);
-                    client.Friends = friends;
-                    db.SaveChanges();
-                    return RedirectToAction("ClientProfile");
-                }
-            }
-            client = null;
-            return View(client);
-        }
+        //public ActionResult AddFriend(int id)
+        //{
+        //    Client client;
+        //    if (ModelState.IsValid)
+        //    {
+        //        Client friend = db.Clients.Where(h => h.ClientId == id).FirstOrDefault();
+        //        var ClientLoggedIn = User.Identity.GetUserId();
+        //        client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+        //        List<Client> friends = new List<Client>();
+        //        if (client.Friends == null)
+        //        {
+        //            friends.Add(friend);
+        //            client.Friends = friends;
+        //            db.SaveChanges();
+        //            return RedirectToAction("ClientProfile");
+        //        }
+        //        else
+        //        {
+        //            friends.AddRange(client.Friends);
+        //            friends.Add(friend);
+        //            client.Friends = friends;
+        //            db.SaveChanges();
+        //            return RedirectToAction("ClientProfile");
+        //        }
+        //    }
+        //    client = null;
+        //    return View(client);
+        //}
         [HttpPost]
         public ActionResult friendSearch(string name)
         {
@@ -287,8 +287,9 @@ namespace BottomsSup.Controllers
         {
             var ClientLoggedIn = User.Identity.GetUserId();
             var client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
-            List<Client> friends = new List<Client>();
-            friends.AddRange(client.Friends);
+            //IEnumerable<Friends> friends=db.Friends.
+            FriendsController friends = new FriendsController();
+            friends.FriendList(client.ClientId);
             return View(friends);
         }
 

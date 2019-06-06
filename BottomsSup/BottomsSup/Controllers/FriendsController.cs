@@ -38,35 +38,40 @@ namespace BottomsSup.Controllers
         }
 
         // GET: Friends/Create
-        public ActionResult Create()
+        public ActionResult Create(Friends friends, int id)
         {
-            ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "FirstName");
-            ViewBag.FriendsId = new SelectList(db.Clients, "ClientId", "FirstName");
-            return View();
+
+
+            var ClientLoggedIn = User.Identity.GetUserId();
+            var client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+            friends.ClientId = client.ClientId;
+            friends.FriendsId = id;
+            db.Friends.Add(friends);
+            db.SaveChanges();
+            //ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "FirstName");
+            //ViewBag.FriendsId = new SelectList(db.Clients, "ClientId", "FirstName");
+            return RedirectToAction("ClientProfile", "Clients");
         }
 
         // POST: Friends/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FriendId,ClientId,FriendsId")] Friends friends, int id)
-        {
-            if (ModelState.IsValid)
-            {
-                var ClientLoggedIn = User.Identity.GetUserId();
-                var client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
-                friends.ClientId = client.ClientId;
-                friends.FriendsId = id;
-                db.Friends.Add(friends);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(Friends friends, int id)
+        //{
 
-            ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "FirstName", friends.ClientId);
-            ViewBag.FriendsId = new SelectList(db.Clients, "ClientId", "FirstName", friends.FriendsId);
-            return View(friends);
-        }
+        //    //[Bind(Include = "FriendId,ClientId,FriendsId")]
+        //    if (ModelState.IsValid)
+        //    {
+               
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "FirstName", friends.ClientId);
+        //    ViewBag.FriendsId = new SelectList(db.Clients, "ClientId", "FirstName", friends.FriendsId);
+        //    return View(friends);
+        //}
 
         // GET: Friends/Edit/5
         public ActionResult Edit(int? id)
@@ -127,6 +132,13 @@ namespace BottomsSup.Controllers
             db.Friends.Remove(friends);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+
+        public ActionResult FriendList(int id)
+        {
+            IEnumerable<Friends> friends = db.Friends.Where(f => f.ClientId == id);
+            return View(friends);
         }
 
         protected override void Dispose(bool disposing)

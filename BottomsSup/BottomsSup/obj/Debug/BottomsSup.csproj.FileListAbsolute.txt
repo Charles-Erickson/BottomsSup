@@ -244,3 +244,4 @@ C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\bin\Zlib.Portab
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.csproj.App.config
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.dhfuehioa.resources
 C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.dsjiksajd.resources
+C:\Users\cse62\OneDrive\Desktop\BottomsSup\BottomsSup\BottomsSup\obj\Debug\BottomsSup.Migrations.sjadnao.resources
