@@ -48,7 +48,7 @@ namespace BottomsSup.Controllers
         // POST: Bars/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BarId,BarName,Open,Close,Address,City,State,Zipcode,UserId")] Bar bar)
+        public ActionResult Create([Bind(Include = "BarId,BarName,Open,Close,Address,DrinkList,City,State,Zipcode,UserId")] Bar bar)
         {
             if (ModelState.IsValid)
             {
