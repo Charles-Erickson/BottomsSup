@@ -149,26 +149,28 @@ namespace BottomsSup.Controllers
         }
        
 
-        public ActionResult CashIn(int? id)
+        public ActionResult CashIn()
         {
-            var bar = db.Bars.Find(id);
-            if (id== null)
-            {
-                return HttpNotFound();
-            }
-            if (bar.Tokens ==0)
-            {
-                return HttpNotFound();
-            }
-            var item = bar.Tokens;
-            List<Tokens> tokens = new List<Tokens>();
+            var BarLoggedIn = User.Identity.GetUserId();
+            Bar bar = db.Bars.Where(e => e.ApplicationUserId == BarLoggedIn).FirstOrDefault();
+            //Bar bar = db.Bars.Find(id);
+            //if (id== null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //if (bar.Tokens ==0)
+            //{
+            //    return HttpNotFound();
+            //}
+            int item = bar.Tokens;
+            //List<Tokens> tokens = new List<Tokens>();
             for (int i = 0; i < item; i++)
             {
-                bar.Balance = bar.Balance + 500;
+                bar.Balance = bar.Balance + 5;
             }
             bar.Tokens = 0;
             db.SaveChanges();
-            return View(bar);
+            return View("BarProfile");
         }
 
 
@@ -183,6 +185,15 @@ namespace BottomsSup.Controllers
             return View(bar);
         }
 
+
+        public ActionResult addToken()
+        {
+            var BarLoggedIn = User.Identity.GetUserId();
+            Bar bar = db.Bars.Where(e => e.ApplicationUserId == BarLoggedIn).FirstOrDefault();
+            bar.Tokens = bar.Tokens + 1;
+            db.SaveChanges();
+            return RedirectToAction("BarProfile");
+        }
 
 
         protected override void Dispose(bool disposing)

@@ -103,13 +103,14 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Cash In", "CashIn", new { id = Model.BarId }) |
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BarId }) |
+    @Html.ActionLink("Cash In", "CashIn") |
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.BarId }) |*@
     @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Delete", "Delete", new { id = Model.BarId }) |
+    @*@Html.ActionLink("Delete", "Delete", new { id = Model.BarId }) |*@
     @Html.ActionLink("Record Sales", "Create", "Sales")|
     @Html.ActionLink("View Sales Records", "Details", "Sales")|
     @Html.ActionLink("View Sales chart", "Dashboard", "Sales") |
-    @Html.ActionLink("Compare Sales", "CompareSales", "Sales")
+    @Html.ActionLink("Compare Sales", "CompareSales", "Sales")|
+    @Html.ActionLink("add token", "addToken")
 </p>
 
