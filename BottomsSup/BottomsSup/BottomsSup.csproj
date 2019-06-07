@@ -252,6 +252,10 @@
     <Compile Include="Migrations\201906061927566_sjadnao.Designer.cs">
       <DependentUpon>201906061927566_sjadnao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906070317122_disjhodj.cs" />
+    <Compile Include="Migrations\201906070317122_disjhodj.Designer.cs">
+      <DependentUpon>201906070317122_disjhodj.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bank.cs" />
@@ -450,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906061927566_sjadnao.resx">
       <DependentUpon>201906061927566_sjadnao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906070317122_disjhodj.resx">
+      <DependentUpon>201906070317122_disjhodj.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

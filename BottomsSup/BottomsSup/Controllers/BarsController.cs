@@ -62,7 +62,7 @@ namespace BottomsSup.Controllers
                 bar.SalesRecord = db.Sales.Where(f => f.BarId == bar.BarId).ToList();
                 db.Bars.Add(bar);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("BarProfile");
             }
 
             ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", bar.ApplicationUserId);
@@ -94,7 +94,7 @@ namespace BottomsSup.Controllers
             {
                 db.Entry(bar).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("BarProfile");
             }
             ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", bar.ApplicationUserId);
             return View(bar);

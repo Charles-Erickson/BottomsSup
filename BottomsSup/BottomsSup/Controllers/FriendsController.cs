@@ -44,8 +44,11 @@ namespace BottomsSup.Controllers
 
             var ClientLoggedIn = User.Identity.GetUserId();
             var client = db.Clients.Where(e => e.ApplicationUserId == ClientLoggedIn).FirstOrDefault();
+            var pal = db.Friends.Where(w => w.ClientId == id).FirstOrDefault();
             friends.ClientId = client.ClientId;
             friends.FriendsId = id;
+            friends.FirstName = pal.FirstName;
+            friends.LastName = pal.LastName;
             db.Friends.Add(friends);
             db.SaveChanges();
             //ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "FirstName");
