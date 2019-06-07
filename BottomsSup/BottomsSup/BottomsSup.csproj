@@ -423,6 +423,7 @@
     <Content Include="Views\Friends\Edit.cshtml" />
     <Content Include="Views\Friends\Index.cshtml" />
     <Content Include="Views\Friends\FriendList.cshtml" />
+    <Content Include="Views\Bars\BarProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

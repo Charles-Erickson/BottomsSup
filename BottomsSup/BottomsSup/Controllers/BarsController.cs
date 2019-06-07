@@ -17,8 +17,8 @@ namespace BottomsSup.Controllers
         // GET: Bars
         public ActionResult Index()
         {
-            var BarLoggedIn = User.Identity.GetUserId();
-            var bars = db.Bars.Where(e => e.ApplicationUserId == BarLoggedIn);
+
+            var bars = db.Bars;
             return View(bars);
 
         }
