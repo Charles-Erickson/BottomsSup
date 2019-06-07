@@ -6,9 +6,6 @@
 
 <h2>SalesCompared</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -53,7 +50,7 @@
             @Html.DisplayFor(modelItem => item.SecondDateToCompare)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SalesId }) |
+            @Html.ActionLink("Back to List","Index") |
             @Html.ActionLink("Details", "Details", new { id=item.SalesId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.SalesId })
         </td>

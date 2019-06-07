@@ -185,18 +185,18 @@ namespace BottomsSup.Controllers
         //    client = null;
         //    return View(client);
         //}
-        [HttpPost]
-        public ActionResult friendSearch(string name)
-        {
-            var clients = db.Clients;
-            if (ModelState.IsValid)
-            {
+        //[HttpPost]
+        //public ActionResult friendSearch(string name)
+        //{
+        //    var clients = db.Clients;
+        //    if (ModelState.IsValid)
+        //    {
            
-                var matchs = db.Clients.Where(d => d.FirstName == name || d.LastName == name);
-                return View(matchs);
-            }
-            return View(clients);
-        }
+        //        var matchs = db.Clients.Where(d => d.FirstName == name || d.LastName == name);
+        //        return View(matchs);
+        //    }
+        //    return View(clients);
+        //}
 
 
         //public ActionResult SearchFriends(string name)
@@ -294,9 +294,16 @@ namespace BottomsSup.Controllers
         }
 
   
-        public ActionResult ViewBarFlys()
+        public ActionResult ViewBarFlys(string searchString)
         {
-            var clients = db.Clients;
+            var clients = from s in db.Clients
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                clients = clients.Where(s => s.LastName.Contains(searchString)
+                                       || s.FirstName.Contains(searchString));
+            }
+            //var clients = db.Clients;
             return View(clients);
         }
 

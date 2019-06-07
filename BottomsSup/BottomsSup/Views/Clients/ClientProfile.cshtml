@@ -5,7 +5,7 @@
     ViewBag.Title = "ClientProfile";
 }
 
-<h2>ClientProfile</h2>
+<h2>Client Profile</h2>
 
 <div>
     <h4>Clients</h4>
@@ -44,8 +44,10 @@
         </dd>
     </dl>
 </div>
+
+
+
 <p>
-    @Html.ActionLink("Search for Friends", "SearchFriends", new { id = Model.ClientId }) |
     @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
     @Html.ActionLink("Buy token", "StripeAsync", "Clients", new { id = Model.ClientId }) |
     @Html.ActionLink("Back to List", "Index") |

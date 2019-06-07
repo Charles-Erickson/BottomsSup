@@ -107,8 +107,9 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.BarId }) |
     @Html.ActionLink("Back to List", "Index") |
     @Html.ActionLink("Delete", "Delete", new { id = Model.BarId }) |
-    @*@Html.ActionLink("View Friends", "FriendList", "Friends", new { id = Model.ClientId }, null) |
-    @Html.ActionLink("View Bars", "ClientBarList", "Bars")|
-    @Html.ActionLink("View Bar Flys", "ViewBarFlys", new { id = Model.ClientId })*@
+    @Html.ActionLink("Record Sales", "Create", "Sales")|
+    @Html.ActionLink("View Sales Records", "Details", "Sales")|
+    @Html.ActionLink("View Sales chart", "Dashboard", "Sales") |
+    @Html.ActionLink("Compare Sales", "CompareSales", "Sales")
 </p>
 

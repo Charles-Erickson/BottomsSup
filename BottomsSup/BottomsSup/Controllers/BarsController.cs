@@ -171,7 +171,17 @@ namespace BottomsSup.Controllers
             return View(bar);
         }
 
-      
+
+        public ActionResult BarProfile()
+        {
+            var BarLoggedIn = User.Identity.GetUserId();
+            Bar bar = db.Bars.Where(e => e.ApplicationUserId == BarLoggedIn).FirstOrDefault();
+            if (bar == null)
+            {
+                return HttpNotFound();
+            }
+            return View(bar);
+        }
 
 
 

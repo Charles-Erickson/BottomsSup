@@ -8,11 +8,13 @@
 
 <h2>View Bar Flys</h2>
 
-<form action="friendSearch" controller="Clients" method="post">
+@using (Html.BeginForm())
+{
     <p>
-        Name: <input type="text" name="SearchString">
-        <input type="submit" value="Filter" />
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
     </p>
+}
 
 
 <table class="table">
@@ -50,7 +52,7 @@
             <td>
 
                 @Html.ActionLink("Send Token", "SendToken", new { id = item.ClientId }) |
-                @Html.ActionLink("Add Friend", "Create","Friends", new { id = item.ClientId }, null) 
+                @Html.ActionLink("Add Friend", "Create", "Friends", new { id = item.ClientId }, null)
             </td>
         </tr>
     }
